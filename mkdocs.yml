@@ -1,0 +1,48 @@
+site_name: My Docs
+nav:
+    - Home: index.md
+    - 1 - The Plasma State:
+      - 1.1 - Definition of Plasma: ch1-1.md
+      - 1.2 - Particle motion in EM fields: ch1-2.md
+
+# Cool material theme: https://squidfunk.github.io/mkdocs-material/
+theme:
+  name: 'material'
+  font:
+    # text: 'Noto Serif'
+    # code: 'Roboto Mono'
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  language: 'en'
+  feature:
+    tabs: false
+  palette:
+    primary: 'indigo'
+    accent: 'light blue'
+  direction:
+  favicon: assets/images/favicon.png
+  logo:
+    icon: "book"
+  include_search_page: true
+  search_index_only: true
+  static_templates:
+    - 404.html
+
+extra:
+  search:
+    language: 'en'
+
+repo_name: 'PeppyHare/pf-notes'
+repo_url: 'https://github.com/PeppyHare/pf-notes'
+
+
+# This lets us render MathJax, the coolest thing since sliced bread!
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML
+  - extra.js
+extra_css:
+  - stylesheets/dark_theme.css
+  - stylesheets/codehilite.css
+markdown_extensions:
+  - mdx_math
+  - admonition
