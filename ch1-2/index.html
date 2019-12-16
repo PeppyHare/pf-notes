@@ -326,6 +326,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#123-motion-of-a-particle-in-static-and-uniform-e-and-b" title="1.2.3 Motion of a particle in static and uniform E and B" class="md-nav__link">
+    1.2.3 Motion of a particle in static and uniform E and B
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124-motion-of-a-particle-in-uniform-b-with-arbitrary-external-force" title="1.2.4 Motion of a particle in uniform B with arbitrary external force" class="md-nav__link">
+    1.2.4 Motion of a particle in uniform B with arbitrary external force
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#125-gradient-drift-non-uniform-b" title="1.2.5 Gradient Drift (non-uniform B)" class="md-nav__link">
+    1.2.5 Gradient Drift (non-uniform B)
+  </a>
+  
+</li>
+      
       
       
       
@@ -376,6 +397,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#123-motion-of-a-particle-in-static-and-uniform-e-and-b" title="1.2.3 Motion of a particle in static and uniform E and B" class="md-nav__link">
+    1.2.3 Motion of a particle in static and uniform E and B
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#124-motion-of-a-particle-in-uniform-b-with-arbitrary-external-force" title="1.2.4 Motion of a particle in uniform B with arbitrary external force" class="md-nav__link">
+    1.2.4 Motion of a particle in uniform B with arbitrary external force
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#125-gradient-drift-non-uniform-b" title="1.2.5 Gradient Drift (non-uniform B)" class="md-nav__link">
+    1.2.5 Gradient Drift (non-uniform B)
+  </a>
+  
+</li>
+      
       
       
       
@@ -395,10 +437,10 @@
                   <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch1-2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="12-particle-motion-in-em-fields"><em>1.2</em> Particle motion in EM fields</h1>
+                <h1 id="12-particle-motion-in-em-fields"><strong>1.2</strong> Particle motion in EM fields</h1>
 <p>Now that you've got a rigorous definition of a plasma, what can you say about the motion of a charged particle within a plasma? Plasmas are made of electrons and ions that move under the effect of EM fields. Those fields are generated self-consistently by the plasma constituents, so if you want to describe a plasma in a self-consistent way, you need to both describe the generation of these EM fields and resultant the motion of the charged particles.</p>
 <p>To begin with, start with the simplest cases. Assume that the EM fields are given and watch how a charged particle moves under the given fields. </p>
-<h2 id="121-motion-of-a-particle-in-static-and-uniform-magnetic-field"><em>1.2.1</em> Motion of a particle in static and uniform magnetic field</h2>
+<h2 id="121-motion-of-a-particle-in-static-and-uniform-magnetic-field"><strong>1.2.1</strong> Motion of a particle in static and uniform magnetic field</h2>
 <p>In a magnetostatic situation, you must solve</p>
 <p>
 <script type="math/tex; mode=display">
@@ -443,7 +485,7 @@ v^2 = v_{\perp} ^2 + v_{\parallel} ^2 \rightarrow v_{\perp} = \text{const.}
 <p align="center"> <img alt="Figure 1.5" src="../img/1.5.png" /> </p>
 
 <p>The handedness of the motion is defined by the charge of the particle. Positively charged particles will move in a left-handed rotation with respect to <script type="math/tex"> \vec B </script>, and negatively charged particles will move with right-handed rotation with respect to <script type="math/tex"> \vec B </script>.</p>
-<h2 id="122-plasma-magnetic-properties">1.2.2 Plasma magnetic properties</h2>
+<h2 id="122-plasma-magnetic-properties"><strong>1.2.2</strong> Plasma magnetic properties</h2>
 <p>Just looking at the simple magnetostatic case of a charged particle we can infer some of the magnetic properties of a plasma. In the presence of a magnetic field a charged particle undergoes uniform circular motion, so it produces a current loop. There is a magnetic moment <script type="math/tex"> \vec \mu </script> associated with a magnetic loop. Some properties of the vector magnetic moment are</p>
 <ul>
 <li>Its magnitude is  <script type="math/tex"> | \vec \mu | = I \cdot A = \frac{|q| \omega _c}{2 \pi} \cdot \pi \rho ^2 = \frac{m v_{\perp} ^2}{2 B} = \frac{E_{kin, \perp}}{B} </script>
@@ -451,8 +493,116 @@ v^2 = v_{\perp} ^2 + v_{\parallel} ^2 \rightarrow v_{\perp} = \text{const.}
 <li>Its direction will be opposite to <script type="math/tex"> \vec B </script> for both <script type="math/tex"> q > 0 </script> and <script type="math/tex"> q < 0 </script>.</li>
 <li>The magnetic field imposed externally will be reduced by the motion of the charged particles in a plasma. In other words, plasmas have <strong>diamagnetic</strong> properties.</li>
 <li>
-<script type="math/tex"> \mu </script> is an adiabatic invariant. What do we mean by this? From analytical mechanics, the action <script type="math/tex"> J = \oint p \dd q </script> of a coordinate <script type="math/tex"> q </script> and its conjugate momentum <script type="math/tex"> p </script> is constant under a slow change in an external parameter. This assumes that the motion is periodic if there is no change in an external parameter, and that <script type="math/tex"> \oint  </script> is the integral over one period. </li>
+<script type="math/tex"> \mu </script> is an adiabatic invariant. What do we mean by this? From analytical mechanics, the action <script type="math/tex"> J = \oint p \dd q </script> of a coordinate <script type="math/tex"> q </script> and its conjugate momentum <script type="math/tex"> p </script> is constant under a slow change in an external parameter. This assumes that the motion is periodic if there is no change in an external parameter. Here <script type="math/tex"> \oint  </script> is the integral over one period. This means that the magnetic moment will be constant if the externally applied magnetic field changes more slowly than the period of the particle's cyclotron motion.<ul>
+<li>For the magnetic moment <script type="math/tex"> \mu </script>, <script type="math/tex"> q = x </script> (in the direction perpendicular to the externally applied B) and <script type="math/tex"> p = m v_x </script>.
+<script type="math/tex; mode=display">
+J = \oint m v_x \, \dd x = \oint m v_x \dv{x}{t} = \oint m v_x ^2 \dd t 
+</script>
+<script type="math/tex; mode=display">
+= \int_0 ^{2 \pi / \omega_c} m v_{\perp} ^2 \sin ^2 ( \omega _c t + \phi) \dd t
+</script>
+<script type="math/tex; mode=display">
+= \frac{\pi m v_{\perp} ^2}{\omega_c} = \frac{2 \pi m}{|q|} \left( \frac{m v_{\perp}^2}{2 b} \right)
+</script>
+<script type="math/tex; mode=display">
+= \frac{2 \pi m}{|q|} \mu
+</script>
+</li>
 </ul>
+</li>
+</ul>
+<h2 id="123-motion-of-a-particle-in-static-and-uniform-e-and-b"><strong>1.2.3</strong> Motion of a particle in static and uniform E and B</h2>
+<p>First thing's first. Let's write down Newton's equation for a charged particle <script type="math/tex"> q </script> under the influence of static electric and magnetic fields</p>
+<p>
+<script type="math/tex; mode=display">
+m \dv{\vec v}{t} = q ( \vec E + \vec v \cross \vec B)
+</script>
+</p>
+<p>Breaking it apart into directions parallel and perpendicular to the magnetic field,</p>
+<ul>
+<li>
+<p>Parallel direction: 
+<script type="math/tex; mode=display">
+m \dv{\vec v _{\parallel}}{t} = q E_{\parallel}
+</script>
+This is just the equation for uniformly accelerated motion, so the parallel direction is very simple.</p>
+</li>
+<li>
+<p>Perpendicular direction:
+<script type="math/tex; mode=display">
+m \dv{\vec v _{\perp}}{t} = q ( \vec E_{\perp} + v_{\perp} \cross \vec B)
+</script>
+</p>
+</li>
+</ul>
+<p>To get a feel for what happens in the perpendicular direction, let's assume a simple case in which  <script type="math/tex"> \vec E </script> points upwards, and <script type="math/tex"> \vec B </script> points out of the page (they are <script type="math/tex"> \perp </script> to each other). We also assume that the particle starts at rest. Initially, it will be accelerated in the direction of the electric field. As it gains velocity, the magnetic field will curve the trajectory clockwise. When the particle turns around and opposes the electric field, it will slow down, and the Larmor radius will decrease accordingly. A "guiding center" of the particle's motion will move in a direction perpendicular to both the electric field and the magnetic field. Interestingly, the direction of motion of the guiding center is the same for both positively and negatively charged particles.</p>
+<p align="center"> <img alt="Figure 1.6" src="../img/1.6.png" /> </p>
+
+<p>Let's try to understand what the drift of the guiding center looks like. Averaging the perpendicular equation of motion over one gyroperiod:</p>
+<p>
+<script type="math/tex; mode=display">
+\langle m \dv{v_\perp}{t} \rangle = q \langle \vec E_\perp + \vec v_{\perp} \cross \vec B \rangle = 0
+</script>
+<script type="math/tex; mode=display">
+\rightarrow \langle v_{\perp} \cross \vec B = - \vec E_{\perp}
+</script>
+Taking the cross-product with the magnetic field,
+<script type="math/tex; mode=display">
+\langle \vec v_{\perp} \rangle \cross \vec B \cross \vec B = - \langle v_{\perp} \rangle B^2 = - \vec E_\perp \cross \vec B
+</script>
+<script type="math/tex; mode=display">
+\rightarrow \langle v_{\perp} \rangle = \frac{\vec E_{\perp} \cross \vec B}{B^2}
+</script>
+</p>
+<p>While we're in the business of decomposing our directions, we can write <script type="math/tex"> \vec v_{\perp} </script> as a composition of this drift velocity and some "perturbation" velocity <script type="math/tex"> \vec v_{\perp} ' </script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\vec v_{\perp} = \vec v_{E} + \vec v_{\perp} '
+</script>
+<script type="math/tex; mode=display">
+\rightarrow m \dv{\vec v_{\perp}'}{t} = q E_{\perp} + q \vec v_{E} \cross \vec B + q v_{\perp} ' \cross B = q E_{\perp} + q \frac{ E_{\perp} \cross B}{B^2} \cross B + q v_{\perp}' \cross B = q v_{\perp} ' \cross B
+</script>
+</p>
+<p>So the motion of a charged particle in the presence of static E and B fields is given by the superposition of gyromotion, uniform E acceleration, and drift motion of the guiding center <script type="math/tex"> v_{E} = \frac{E_{\perp} \cross B}{B^2} </script>. The drift direction is independent of the sign of charge. The guiding center will move along isocontour lines of the electrostatic potential:</p>
+<p align="center"> <img alt="Figure 1.7" src="../img/1.7.png" /> </p>
+
+<h2 id="124-motion-of-a-particle-in-uniform-b-with-arbitrary-external-force"><strong>1.2.4</strong> Motion of a particle in uniform B with arbitrary external force</h2>
+<p>We can easily generalize our drift velocity result to the case of an arbitrary external force <script type="math/tex"> \vec F </script> on top of the Lorentz force.</p>
+<p>
+<script type="math/tex; mode=display">
+m \dv {\vec v}{t} = \vec F + q \vec v \cross \vec B
+</script>
+<script type="math/tex; mode=display">
+\rightarrow \vec v _{F} = \frac{ \vec F_{\perp} \cross \vec B}{q B^2} \quad \text{(drift)}
+</script>
+</p>
+<div class="admonition question">
+<p class="admonition-title">Application: Gravitational Force</p>
+<p>By applying what we know about the drift velocity, what can we say about the behavior of a plasma under the influence of gravity and a magnetic field? Will it fall?</p>
+<p>Initially, the drift velocity will be perpendicular to both <script type="math/tex"> \vec B </script> and <script type="math/tex"> m \vec g </script>, so it will be horizontal and the plasma will not fall. However, the direction of the drift velocity will be opposite for positive and negatively charged particles. This will lead to a charge buildup, which causes an electric field <script type="math/tex"> \vec E </script>  across the plasma. The drift velocity resulting from <script type="math/tex"> \vec E </script> and <script type="math/tex"> \vec B </script> is now pointing downwards, and is in the same direction for both positively and negatively charged particles. Therefore, the plasma will fall downwards under the influence of gravity, but under a much more complicated process than it would initially seem.</p>
+<p><p align="center"> <img alt="Figure 1.8" src="../img/1.8.png" /> </p></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Application: Curvature Drift</p>
+<p>What if we have a curved <script type="math/tex"> \vec B </script>? A particle moving in a curved magnetic field tries to follow the field lines, since motion <script type="math/tex"> \perp </script> to <script type="math/tex"> \vec B </script> is resisted. The particle will experience a centrifugal force
+<script type="math/tex; mode=display">
+F_{c} = \frac{m v_{\parallel}^2}{R_B ^2} \vec R_B
+</script>
+<p align="center"> <img alt="Figure 1.9" src="../img/1.9.png" /> </p>
+And as a result, it will drift:
+<script type="math/tex; mode=display">
+\vec v_{d} = \frac{\vec F_C \cross \vec B}{q B^2} = \frac{m v_{\parallel ^2}}{q B^2 R_B ^2} ( \vec R_B \cross \vec B) \quad \text{curvature drift}
+</script>
+It turns out that this <strong>curvature drift</strong> is a very important quantity in plasma physics.</p>
+</div>
+<h2 id="125-gradient-drift-non-uniform-b"><strong>1.2.5</strong> Gradient Drift (non-uniform B)</h2>
+<p>Now, what if our particle moves in a region of non-uniform <script type="math/tex"> \vec B </script>? Once again, the motion of the particle will follow a guiding center, with a periodic perturbation motion atop. The calculation of the velocity of the guiding center is quite complicated, but the result is</p>
+<p>
+<script type="math/tex; mode=display">
+\vec v_{\grad \vec B} = \frac{m v^2}{2 qB^3} ( \vec B \cross \grad \vec B)
+</script>
+This is what is called the <strong>"grad-B drift"</strong>.</p>
                 
                   
                 
