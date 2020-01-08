@@ -10,6 +10,8 @@ Keepin track of stuff while I learn it
 - 1 - The Plasma State
     - [1.1 - Definition of Plasma](ch1-1.md)
     - [1.2 - Particle motion in EM fields](ch1-2.md)
+- 10 - Background Review
+    - [10.1 - Statistical Mechanics](ch10-1.md)
 
 
 ### Internals
