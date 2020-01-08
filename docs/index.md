@@ -12,6 +12,9 @@ Keepin track of stuff while I learn it
     - [1.2 - Particle motion in EM fields](ch1-2.md)
 - 10 - Background Review
     - [10.1 - Statistical Mechanics](ch10-1.md)
+- 20 - Introduction to CFD
+    - [20.1 - Introduction](ch20-1.md)
+    - [20.2 - Governing Equations](ch20-2.md)
 
 
 ### Internals
