@@ -36,7 +36,7 @@
     
     
       
-        <title>20.1 - Introduction - My Docs</title>
+        <title>20.2 - Governing Equations - My Docs</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#201-introduction-to-computational-cfd" tabindex="1" class="md-skip">
+      <a href="#governing-equations" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -131,7 +131,7 @@
               My Docs
             </span>
             <span class="md-header-nav__topic">
-              20.1 - Introduction
+              20.2 - Governing Equations
             </span>
           
         </div>
@@ -356,6 +356,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../ch20-1/" title="20.1 - Introduction" class="md-nav__link">
+      20.1 - Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -366,58 +378,10 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        20.1 - Introduction
-      </label>
-    
-    <a href="./" title="20.1 - Introduction" class="md-nav__link md-nav__link--active">
-      20.1 - Introduction
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#2011-applications" title="20.1.1 Applications" class="md-nav__link">
-    20.1.1 Applications
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2012-computer-hardware" title="20.1.2 Computer Hardware" class="md-nav__link">
-    20.1.2 Computer Hardware
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ch20-2/" title="20.2 - Governing Equations" class="md-nav__link">
+    <a href="./" title="20.2 - Governing Equations" class="md-nav__link md-nav__link--active">
       20.2 - Governing Equations
     </a>
+    
   </li>
 
         
@@ -443,29 +407,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#2011-applications" title="20.1.1 Applications" class="md-nav__link">
-    20.1.1 Applications
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2012-computer-hardware" title="20.1.2 Computer Hardware" class="md-nav__link">
-    20.1.2 Computer Hardware
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -476,66 +417,100 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch20-1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch20-2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="201-introduction-to-computational-cfd"><strong>20.1</strong> Introduction to Computational CFD</h1>
-<!-- Eric Meier -->
-
-<p><strong>What is computational fluid dynamics?</strong> Put simply, it's the use of computers to obtain a numerical solution to the governing equations of fluid dynamics. As always, the numerical solution is an approximation to the real solution to the equations, but additionally those equations are themselves only an approximation of the real physics. </p>
-<p align="center"> <img alt="Figure 20.1" src="../img/20.1.png" /> </p>
-
-<p>We will be interested in speeds much less than <script type="math/tex"> c </script> (<script type="math/tex"> 3 \cdot 10^8 m/s) </script> and distances much greater than the atomic radius <script type="math/tex"> \alpha_{bohr} = 5 \cdot 10^{-11} m </script>. </p>
-<p>Classical mechanics is governed entirely by Newton's laws:</p>
+                <h1 id="governing-equations"><strong>Governing Equations</strong></h1>
+<p>Continuity</p>
 <p>
 <script type="math/tex; mode=display">
-m \ddot{x_i} = \sum_j F_{ij}
+\pdv{\rho}{t} + v \cdot \grad \rho = - \rho \grad \cdot v
 </script>
 </p>
-<p>Modeling using only classical mechanics can be and is done. For example, the PIC ("particle-in-cell") method models individual particles. But often, even in PIC simulations, we approximate many particles (<script type="math/tex"> \geq 20^{20} )</script> by fewer superparticles <script type="math/tex"> (\approx 10^6) </script>. Modeling with fewer particles leads to statistical errors, since noise is reduced with larger numbers of particles. When modeling long time scales, those statistical errors build up. PIC is only useful for timescales around <script type="math/tex"> \leq 10^{-6} </script> seconds.</p>
-<p>To handle longer time scales and large numbers of particles, we can group the particles into elements in phase space <script type="math/tex"> (\vec v, \vec x,t ) </script>. The governing equation is the Boltzmann equation
+<p>Momentum:</p>
+<p>
 <script type="math/tex; mode=display">
-\pdv{f}{t} + \vec v \cdot \pdv{f}{x} + \frac{\vec F}{m} \cdot \pdv{f}{\vec v} = \left. \pdv{f}{t} \right| _{\text{collisions}}
+\rho \left( \pdv{v}{t} + v \cdot \grad v\right) + \grad p - \frac{1}{\mu_0} (\curl \vec B) \cross \vec B = \div  \vec T 
+</script>
+<script type="math/tex; mode=display">
+\vec T = \text{ viscous stress tensor }
+</script>
+<script type="math/tex; mode=display">
+\frac{1}{\mu_0} \curl \vec B = \vec j = \text{ current density }
 </script>
 </p>
-<p>where <script type="math/tex"> f(\vec v, \vec x, t) </script> is the probability distribution function - the number of particles at location <script type="math/tex"> \vec x </script> with velocity <script type="math/tex"> \vec v </script> at time t. This lets us replace the massive discrete particle simulation with an easier continuous set of probability distribution components. However, the 3-dimensional problem has been turned into a 7-dimensional (3 space, 3 velocity, time) one, which is very expensive and slow.</p>
-<p>If we assume local thermodynamic equilibrium (in other words, Maxwellian velocity distribution) we can assign a characteristic velocity to spatial (fluid) elements based on the Maxwellian distribution velocity. Formally, this means that we take moments of the Boltzmann equation and we define an equation of state for closure (determining a truncation of the higher-order moments).</p>
-<p>Doing so gives us the equations of fluid mechanics, the <strong>Navier-Stokes</strong> equations. More generally, for conducting fluids or plasmas this gives the magnetofluid equations. In plasmas in which we care about multiple species (ions, electrons), further unification is done by a single-fluid assumption, resulting in MHD equations. These assumptions give impressive agreement with real-world observed results.</p>
-<h2 id="2011-applications"><strong>20.1.1</strong> Applications</h2>
-<p>CFD is routinely used for </p>
-<ul>
-<li>The engineering design of airplanes</li>
-<li>Boat hull design</li>
-<li>Automobiles</li>
-<li>Various manufacturing processes</li>
-<li>Computer chassis design</li>
-<li>Weather forecasting</li>
-</ul>
-<p>There are a number of unsolved "Grand challenges" in the CFD space</p>
-<ul>
-<li>Numerical Wind Tunnel<ul>
-<li>eliminate the need for wind tunnel tests, give access to any Reynolds number </li>
-<li>cost savings</li>
-</ul>
-</li>
-<li>Global Weather Model<ul>
-<li>predict flooding anywhere</li>
-<li>snowstorms</li>
-<li>problem: "butterfly effect"</li>
-</ul>
-</li>
-<li>Numerical Tokamak<ul>
-<li>would help solve the problem of magnetic fusion for energy production</li>
-<li>avoid expensive experiments</li>
-</ul>
-</li>
-</ul>
-<h2 id="2012-computer-hardware"><strong>20.1.2</strong> Computer Hardware</h2>
-<p>By 2020 many useful simulations can be done on personal computers. Previously workstations served the purpose of small-scale but greater than personal computer applications. Supercomputers are now the main CFD target
- - Vector computers (Cray)
- - Parallel computers (IBM, SGI, Cray...): massively parallel, N &gt; 10,000
- - Symmetric multiprocessors: combines parallel and vector computing. Many cores on a single CPU chip.</p>
-<p>Parallel computing issues quickly become very important for large-scale simulations that can not fit on a single node. How do you divide a problem so that many processors evenly share work? We can define parallel efficiency to mean N processors should perform the work N times faster. This efficiency is not always possible, and is algorithm dependent. To take advantage of parallel computing benefits, appropriate algorithms must be chosen.</p>
+<p>Magnetic Field
+<script type="math/tex; mode=display">
+\pdv{B}{t} - \curl ( v \cross B) = - \curl \left[ \frac{\eta}{\mu_0} (\curl \vec B) \right]
+</script>
+<script type="math/tex; mode=display">
+\eta = \text{ electrical resistivity }
+</script>
+</p>
+<p>Energy:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\rho \left( \pdv{\mathscr{E}}{t} + v \cdot \grad \mathscr{E} \right) + p \div v & = \div \left( v \cdot \vec T \right) & \\
+& + \div ( k \div T) \qquad \text{ (thermal conduction) }& \\
+& + \frac{\eta}{\mu_0 ^2} (\curl B )^2 \qquad \text{ (resistive heating) } &
+\end{align*}
+</script>
+<script type="math/tex; mode=display">
+\mathscr{E} = \text{ specific internal energy}
+</script>
+<script type="math/tex; mode=display">
+\rho \mathscr{E} = \frac{p}{\gamma - 1}
+</script>
+</p>
+<p>If we drop all terms with B and the magnetic field equation, then we get the Navier-Stokes equations. These equations are a system and must be solved self-consistently. The RHS of each equation represents non-ideal contributions due to self collisions. Those include viscosity, resistivity, and conduction.</p>
+<p>Using vector identities and the fact that <script type="math/tex"> \div B = 0 </script>, we can re-write the equations in <strong>conservative form</strong>.</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{\rho}{t} + \div (\rho v) = 0
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{(\rho v)}{t} + \div \left[\rho v v - \frac{BB}{\mu_0} + \vec 1 \left( \frac{B^2}{2 \mu_0} + p \right) \right] = \div \vec T
+</script>
+<script type="math/tex; mode=display">
+\pdv{B}{t} + \div [v B - B v] = \div \left( \frac{\eta}{\mu_0} \grad B \right)
+</script>
+<script type="math/tex; mode=display">
+\pdv{e}{t} + \div \left[ \left( e + p + \frac{B^2}{2 \mu_0} \right) v - \frac{(B \cdot v) B}{\mu_0} \right] = \div \left[ v \cdot \vec T + k \grad T - \frac{\eta}{\mu_0} ( \curl B) \cross B \right]
+</script>
+where the total energy <script type="math/tex"> e = \frac{p}{\gamma - 1} + \frac{rho v^2}{2} + \frac{B^2}{2 \mu_0 } </script>.</p>
+<p>As a quick refresher on dyad notation, we say <script type="math/tex"> \vec A \vec B </script> is notation for</p>
+<p>
+<script type="math/tex; mode=display">
+\vec A \vec B = \begin{bmatrix} A_x B_x & A_x B_y & A_x B_z \\ A_y B_x & A_y B_y & \ldots \\
+\ldots & \ldots & \ldots & \end{bmatrix}
+</script>
+For that reason, sometimes it'll be written as a matrix multiplication <script type="math/tex"> \vec A \vec B^T </script>
+<script type="math/tex; mode=display">
+\vec A \vec B^T = \begin{bmatrix} A_x \\ A_y \\ A_z \end{bmatrix} \begin{bmatrix} B_x & B_y & B_z \end{bmatrix}
+</script>
+</p>
+<p>In compact form,
+<script type="math/tex; mode=display">
+\pdv{Q}{t} + \div \vec F = \div \vec F_p \quad \text{(parabolic)}
+</script>
+or
+<script type="math/tex; mode=display">
+\pdv{Q}{t} + \pdv{\vec F}{x} + \pdv{\vec G}{y} + \pdv{\vec H}{z} = \pdv{\vec F_p}{x} + \pdv{\vec G_p}{y} + \pdv{\vec H_p}{z}
+</script>
+</p>
+<!-- 
+$$
+\begin{align*}
+\curl{\vec{v}} & = \begin{bmatrix}
+\vu{x} & \vu{y} & \vu{z} \\
+\pdv{}{x} & \pdv{}{y} & \pdv{}{z} \\
+v_x & v_y & v_z
+\end{bmatrix}
+\end{align*}
+$$ -->
                 
                   
                 
@@ -556,7 +531,7 @@ m \ddot{x_i} = \sum_j F_{ij}
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch10-1/" title="10.1 - Statistical Mechanics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch20-1/" title="20.1 - Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -565,25 +540,11 @@ m \ddot{x_i} = \sum_j F_{ij}
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                10.1 - Statistical Mechanics
+                20.1 - Introduction
               </span>
             </div>
           </a>
         
-        
-          <a href="../ch20-2/" title="20.2 - Governing Equations" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                20.2 - Governing Equations
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
