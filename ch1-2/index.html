@@ -347,6 +347,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#126-plasma-confinement-for-single-particle-motion" title="1.2.6 Plasma Confinement for Single-Particle Motion" class="md-nav__link">
+    1.2.6 Plasma Confinement for Single-Particle Motion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-field-lines" title="Open field lines" class="md-nav__link">
+    Open field lines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-magnetic-field-lines" title="Closed magnetic field lines" class="md-nav__link">
+    Closed magnetic field lines
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -355,6 +382,78 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      10 - Background Review
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        10 - Background Review
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch10-1/" title="10.1 - Statistical Mechanics" class="md-nav__link">
+      10.1 - Statistical Mechanics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      20 - Introduction to Compressible CFD
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        20 - Introduction to Compressible CFD
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch20-1/" title="20.1 - Introduction" class="md-nav__link">
+      20.1 - Introduction
+    </a>
   </li>
 
         
@@ -415,6 +514,33 @@
   <a href="#125-gradient-drift-non-uniform-b" title="1.2.5 Gradient Drift (non-uniform B)" class="md-nav__link">
     1.2.5 Gradient Drift (non-uniform B)
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#126-plasma-confinement-for-single-particle-motion" title="1.2.6 Plasma Confinement for Single-Particle Motion" class="md-nav__link">
+    1.2.6 Plasma Confinement for Single-Particle Motion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-field-lines" title="Open field lines" class="md-nav__link">
+    Open field lines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-magnetic-field-lines" title="Closed magnetic field lines" class="md-nav__link">
+    Closed magnetic field lines
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -603,6 +729,84 @@ It turns out that this <strong>curvature drift</strong> is a very important quan
 \vec v_{\grad \vec B} = \frac{m v^2}{2 qB^3} ( \vec B \cross \grad \vec B)
 </script>
 This is what is called the <strong>"grad-B drift"</strong>.</p>
+<h2 id="126-plasma-confinement-for-single-particle-motion"><strong>1.2.6</strong> Plasma Confinement for Single-Particle Motion</h2>
+<p>How should we go about confining a plasma? We've seen that in the presence of magnetic fields, the trajectory of a charged particle is helical along the field lines. So a magnetic field provides confinement of charged fields perpendicular to the field lines, but not along the parallel direction. If we want to confine a plasma, we need to somehow limit the loss of charged particles along the direction of the magnetic field.</p>
+<h3 id="open-field-lines">Open field lines</h3>
+<p>One way to do this is using open field lines, and noting a force which acts on magnetic moment:</p>
+<p>
+<script type="math/tex; mode=display">
+\vec F = - ( \vec \mu \cdot \grad ) \vec B
+</script>
+</p>
+<p>As an example, if we have two coaxial ring currents the field lines will constrict through the rings and expand in the region between the rings. This means that a magnetic dipole which is nearer to one of the rings will feel a force toward the other ring, with a stable point in the center. This is the principle behind so-called <strong>"magnetic mirrors"</strong>.</p>
+<p align="center"> <img alt="Figure 1.10" src="../img/1.10.png" /> </p>
+
+<p>Since we've got an axially symmetric system we describe it in cylindrical coordinates <script type="math/tex"> r </script> (distance from the axis), <script type="math/tex"> \theta </script>, and <script type="math/tex"> z </script>. We will focus on particles which have guiding centers on the axis to simplify the math; a similar result can be obtained for particles moving off-axis.</p>
+<p>Let's write down the magnetic force near the axis:</p>
+<p>
+<script type="math/tex; mode=display">
+ F_z = q ( \vec v \cross \vec B) = |q| v_{\perp} B_z 
+ </script>
+</p>
+<p>since
+<script type="math/tex; mode=display">
+\div \vec B = \frac{1}{r} \pdv{}{r} (r B_r) + \pdv{B_z}{z} = 0
+</script>
+<script type="math/tex; mode=display">
+\rightarrow B_z = - \frac{r}{2} \pdv{B_z}{z} = - \frac{r}{2} | \grad B |
+</script>
+<script type="math/tex; mode=display">
+\rightarrow F_z = - |q| v_{\perp} \frac{r}{2} | \grad B | = - |q| v_{\perp} \frac{\rho}{2} | \grad B|
+</script>
+(where <script type="math/tex"> \rho </script> is the Larmor radius)
+<script type="math/tex; mode=display"> = - \frac{m v_{\perp}^2}{2 B} | \grad B| = - \mu | \grad B|
+</script>
+</p>
+<p>Where we recognize the magnetic moment we just described in the previous section. So we have recovered the stable force on a magnetic moment in a non-uniform magnetic field.</p>
+<p>What are the particles that can be confined by a magnetic mirror? As we saw in the previous lecture, the magnetic moment <script type="math/tex"> \mu = \frac{1}{2} \frac{m v_{\perp}^2}{B} </script> is a constant of motion. It will therefore be equal both at the center of the magnetic mirror and at the edge:</p>
+<p>
+<script type="math/tex; mode=display">
+\mu = \frac{1}{2} \frac{m v_{\perp, c}^2}{B_{min}} = \frac{1}{2} \frac{m v_{\perp, e}^2}{B_{max}}
+</script>
+where we take the edge (e) and the center (c) of the mirror. The kinetic energy is also a constant of motion</p>
+<p>
+<script type="math/tex; mode=display">
+E = \frac{1}{2} m (v_{\perp, c}^2 + v_{\parallel, c}^2) = \frac{1}{2} m ( v_{\perp, e}^2 + v_{\parallel, e}^2)
+</script>
+</p>
+<p>A particle will be reflected if, while moving towards <script type="math/tex"> B_{max} </script>, <script type="math/tex"> v_{\parallel} </script> vanishes. Therefore
+<script type="math/tex; mode=display">
+E_{kin} = \frac{1}{2} m v_{\perp}^2
+</script>
+<script type="math/tex; mode=display">
+\rightarrow \mu = \frac{1}{2} \frac{m v_{\perp, c}^2}{B_{min}} = \frac{1}{2} \frac{m v_{\perp, e}^2}{B_{max}} > \frac{m ( v_{\perp, e}^2 + v_{\parallel, e}^2)}{2 B_{max}} 
+</script>
+<script type="math/tex; mode=display">
+= \frac{E_{kin}}{B_{max}} = \frac{1}{2} \frac{m(v_{\perp, c}^2 + v_{\parallel, c} ^2)}{B_{max}}
+</script>
+<script type="math/tex; mode=display">
+\rightarrow \frac{v_{\perp, c}^2}{v_{\perp, c} + v_{\parallel, c}^2} > \frac{B_{min}}{B_{max}}
+</script>
+</p>
+<p>We can visualize the region of stability by looking at the phase space <script type="math/tex"> (v_{\perp, c}, v_{\parallel, c} ) </script>. Outside of the loss cones, the particle will be confined while moving along the axis of the magnetic mirror.</p>
+<p align="center"> <img alt="Figure 1.11" src="../img/1.11.png" /> </p>
+
+<p>An example of a real magnetic mirror is the Earth's magnetic field. Since it is a dipolar field, there are charged particles that move subject to the presence of the magnetic fields. The particles will stream along the field lines. When they approach the magnetic poles, they experience a stronger field and are pushed back, leading to an accumulation of particles in the equatorial regions of the Earth's magnetic field.</p>
+<h3 id="closed-magnetic-field-lines">Closed magnetic field lines</h3>
+<p>We can close the field lines in a toroidal-shaped device, such as a doughnut-shaped solenoid. The field lines within the device are tangential to the ring and closed. This is the design used in <strong>tokamaks</strong> and <strong>stellarators</strong>.</p>
+<p>Imagine a toroidal device with a set of coils carrying a current, creating closed field lines. The intensity of the magnetic field is given by
+<script type="math/tex; mode=display">
+B = \frac{\mu_0 N}{2 \pi} \frac{I}{r}
+</script>
+with <script type="math/tex"> N </script> the number of coils, <script type="math/tex"> I </script> the current, and <script type="math/tex"> r </script> the radius of curvature of the field lines. Since <script type="math/tex"> \vec B </script> is curved, drifts are present! The curvature and grad-B drifts are</p>
+<p>
+<script type="math/tex; mode=display">
+\vec v_{d} = \frac{ m v_{\parallel}^2}{q B^2 R_B ^3}(\vec R_B \cross \vec B)
+</script>
+<script type="math/tex; mode=display">
+\vec v_{\grad B} = \frac{m v_{\perp}^2}{2 B^3 q}(\vec B \cross \grad \vec B)
+</script>
+</p>
                 
                   
                 
@@ -637,6 +841,20 @@ This is what is called the <strong>"grad-B drift"</strong>.</p>
             </div>
           </a>
         
+        
+          <a href="../ch10-1/" title="10.1 - Statistical Mechanics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                10.1 - Statistical Mechanics
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
