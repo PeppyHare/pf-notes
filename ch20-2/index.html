@@ -378,9 +378,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        20.2 - Governing Equations
+      </label>
+    
     <a href="./" title="20.2 - Governing Equations" class="md-nav__link md-nav__link--active">
       20.2 - Governing Equations
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2022-the-euler-equations" title="20.2.2 The Euler Equations" class="md-nav__link">
+    20.2.2 The Euler Equations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -406,6 +435,22 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2022-the-euler-equations" title="20.2.2 The Euler Equations" class="md-nav__link">
+    20.2.2 The Euler Equations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -463,6 +508,30 @@
 \rho \mathscr{E} = \frac{p}{\gamma - 1}
 </script>
 </p>
+<p>These are the governing equations for magnetohydrodynamics (MHD). It's important to understand where they come from. Starting from the Boltzmann equation, which describes how a distribution evolves over time</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{f}{t} + \vec v \cdot \pdv{f}{\vec x} + \vec a \pdv{f}{\vec v} = \left. \pdv{f}{t} \right|_{\text{collisions}}
+</script>
+</p>
+<p>We take moments of <script type="math/tex"> \vec v </script> of the Boltzmann equation to get all of the above:</p>
+<p>
+<script type="math/tex; mode=display">
+\vec u (\vec x , t) = \frac{\int \vec v f( \vec x , \vec v, t) \dd \vec v}{\int f(\vec x, \vec v, t) \dd \vec v}
+</script>
+</p>
+<p>The 0th moment gives the conservation of mass relation, since . The Knudsen number <script type="math/tex"> Kn </script> is the mean free path between collisions 
+<script type="math/tex; mode=display">
+Kn = \frac{ \lambda_{mfp}}{L}
+</script>
+When the Knudsen number is sufficiently small, these equations work well. When Kn becomes larger than the simulation volume, then the equations of fluid dynamics break down and we get non-Maxwellian phenomena. Also, if <script type="math/tex"> L </script> is very small (for example, a powerful shock), we'll probably miss something.</p>
+<p>When taking moments, notice that each moment will introduce the next moment</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{}{t} \int \vec v ^{n} f \dd \vec v + \int \vec v ^{n+1} f \dd \vec v
+</script>
+</p>
+<p>We get to stop when we define a closure relation that relates moments to higher moments. For example, the ideal gas law is a closure relation, since it relates temperature (<script type="math/tex"> \mathscr{E} </script> to density. Implicit in these equations are the closure relations that we need to keep in mind.</p>
 <p>If we drop all terms with B and the magnetic field equation, then we get the Navier-Stokes equations. These equations are a system and must be solved self-consistently. The RHS of each equation represents non-ideal contributions due to self collisions. Those include viscosity, resistivity, and conduction.</p>
 <p>Using vector identities and the fact that <script type="math/tex"> \div B = 0 </script>, we can re-write the equations in <strong>conservative form</strong>.</p>
 <p>
@@ -501,16 +570,108 @@ or
 \pdv{Q}{t} + \pdv{\vec F}{x} + \pdv{\vec G}{y} + \pdv{\vec H}{z} = \pdv{\vec F_p}{x} + \pdv{\vec G_p}{y} + \pdv{\vec H_p}{z}
 </script>
 </p>
-<!-- 
-$$
-\begin{align*}
-\curl{\vec{v}} & = \begin{bmatrix}
-\vu{x} & \vu{y} & \vu{z} \\
-\pdv{}{x} & \pdv{}{y} & \pdv{}{z} \\
-v_x & v_y & v_z
+<p>Now, we can re-write the governing equations in a form that's easier to work with, called <strong>conservation form</strong>. This form involves relating the time derivative of a quantity we are interested in to the divergence of a flux:</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{Q}{t} = - \div \vec F
+</script>
+</p>
+<p>Our governing relations are not in conservation form, but they can be. Take the conservation of mass relation</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{\rho}{t} = - \div ( \rho \vec v)
+</script>
+</p>
+<p>Writing our expressions in conservation form helps to ensure that numerical codes replicate real physics. If our simulation does not conserve something like mass or momentum due to some numerical errors, we're not likely to get a physical result from the simulation.</p>
+<p>On to the conservation of momentum, combining with our mass conservation relation</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{}{t}(\rho \vec v) + \div \left[ \rho \vec v \vec v - \frac{\vec B \vec B}{\mu_0} + (\frac{B^2}{2 \mu_0} + p ) \vec 1 \right] = \div \vec T
+</script>
+</p>
+<p>and the magnetic field equation</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{\vec B}{t} + \div \left[ \vec v \vec B - \vec B \vec v \right] = \div \left[ \frac{\eta}{\mu_0} \grad \vec B \right]
+</script>
+</p>
+<p>and the energy relation</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{e}{t} + \div \left[ \left(e + p + \frac{B^2}{2 \mu_0}\right) \vec v - \frac{( \vec B \cdot \vec v) \vec B}{\mu_0} \right] = \div \left[ \ldots \right]
+</script>
+<script type="math/tex; mode=display">
+\text{ total energy } \quad e = \frac{p}{\gamma - 1} + \frac{\rho v^2}{2} + \frac{B^2}{2\mu_0}
+</script>
+</p>
+<p>So all of our governing equations can be written in conservation form. We can get to a more compact form which looks like</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{\overline{Q}}{t} + \div \overline{\overline{F}} = \div \overline{\overline{F_p}}
+</script>
+</p>
+<p>where <script type="math/tex"> \overline{Q} </script> is just the vector containing all of our scalar conserved quantities, and <script type="math/tex"> \overline{\overline{F} }</script> is a vector of all of our flux vectors.</p>
+<p>
+<script type="math/tex; mode=display">
+\overline{Q} = \begin{bmatrix} \rho \\ \rho \mu \\ \rho v \\ \rho w \\ B_x \\ B_y \\ B_z \\ e \end{bmatrix}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\overline{\overline{F}} = \vec F + \vec G + \vec H = \overline{\overline{F_x}} + \overline{\overline{F_y}} + \overline{\overline{F_z}}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\overline{F} = \begin{bmatrix} \rho u \\
+\rho u^2 - B^2 _x / 2 \mu + p \\
+\rho u v - B_x B_y / \mu_0 \\
+\rho u w - B_x B_z / \mu \\
+0 \\
+u B_y - B_x v \\
+u B_z - B_x w \\
+(e + p + B^2 / 2 \mu_0 )u - \frac{\vec B \cdot \vec v}{\mu_0} B_x 
+\end{bmatrix} = \text{ flux vector (x-component) }
+</script>
+</p>
+<p>We can similarly calculate the other factors <script type="math/tex"> \overline{G} </script> and <script type="math/tex"> \overline{H} </script>. Now let's move on to <script type="math/tex"> \overline{F_p} </script>, the parabolic flux vector (as opposed to the hyperbolic fluxes <script type="math/tex"> \overline{F} </script>). These fluxes typically come from "non-ideal" effects.</p>
+<p>
+<script type="math/tex; mode=display">
+\overline{F_p} = \begin{bmatrix} 0 \\
+2 \mu \left(\pdv{u}{x} - \frac{ \div \vec v}{3} \right) \\
+\mu \left( \pdv{\mu}{y} + \pdv{v}{x} \right) \\
+\mu \left( \pdv{u}{z} + \pdv{w}{z} \right) \\
+\frac{\eta}{\mu_0} \pdv{B_x}{x} \\
+\frac{\eta}{\mu_0} \pdv{B_y}{x} \\
+\frac{\eta}{\mu_0} \pdv{B_z}{x} \\
+u \vec T _{xx} +  v T_{yx} + w T_{zx} + k \pdv{T}{x} - \frac{\eta}{\mu_0} \left[ ( \curl B)_y B_z - ( \curl B)_z B_y \right]
 \end{bmatrix}
-\end{align*}
-$$ -->
+</script>
+</p>
+<h2 id="2022-the-euler-equations"><strong>20.2.2</strong> The Euler Equations</h2>
+<p>If we have a fluid which is unmagnetized, inviscid, and thermal conductivity is zero, we are left with the Euler equations
+<script type="math/tex; mode=display">
+\pdv{Q}{t} + \pdv{F}{x} + \pdv{G}{y} + \pdv{H}{z} = 0
+</script>
+</p>
+<p>or, in 2 dimensions</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{Q}{t} + \pdv{F}{x} + \pdv{G}{y} = 0
+</script>
+<script type="math/tex; mode=display">
+Q = \begin{bmatrix} \rho \\ \rho u \\ \rho v \\ e \end{bmatrix}
+</script>
+<script type="math/tex; mode=display">
+F = \begin{bmatrix} \rho u \\ \rho u ^2 + p \\ \rho u v \\ u (e + p) \end{bmatrix}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+G = \begin{bmatrix} \rho v \\ \rho u v \\ \rho v^2 + p \\ v(e + p) \end{bmatrix}
+</script>
+</p>
+<p>The Euler equations are the inviscid Navier-Stokes equations, and they exhibit many of the nonlinearities that the full N-S equations do. Solution of the Euler equations represents an important advance for any algorithm. Some such important nonlinearities are shockwaves, contact discontinuities, rarefications. It turns out that most of those parabolic fluxes make the situation easier from a CFD standpoint, because they are dissipating effects which actually serve to suppress instabilities.</p>
                 
                   
                 
