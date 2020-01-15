@@ -36,7 +36,7 @@
     
     
       
-        <title>Ch1 3 - My Docs</title>
+        <title>10.2 - Review of E&M - My Docs</title>
       
     
     
@@ -106,6 +106,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#102-review-of-em" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -127,7 +131,7 @@
               My Docs
             </span>
             <span class="md-header-nav__topic">
-              Ch1 3
+              10.2 - Review of E&M
             </span>
           
         </div>
@@ -295,10 +299,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       10 - Background Review
@@ -319,6 +325,56 @@
     <a href="../ch10-1/" title="10.1 - Statistical Mechanics" class="md-nav__link">
       10.1 - Statistical Mechanics
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10.2 - Review of E&M
+      </label>
+    
+    <a href="./" title="10.2 - Review of E&M" class="md-nav__link md-nav__link--active">
+      10.2 - Review of E&M
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1011-maxwell-stress-tensor" title="10.1.1 Maxwell Stress Tensor" class="md-nav__link">
+    10.1.1 Maxwell Stress Tensor
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -382,17 +438,122 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1011-maxwell-stress-tensor" title="10.1.1 Maxwell Stress Tensor" class="md-nav__link">
+    10.1.1 Maxwell Stress Tensor
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch1-3.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch10-2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Ch1 3</h1>
-                
-                
+                <h1 id="102-review-of-em"><strong>10.2</strong> Review of E&amp;M</h1>
+<p>Realistically, all of the E&amp;M review comes from https://peppyhare.github.io/griffiths-em/</p>
+<h2 id="1011-maxwell-stress-tensor"><strong>10.1.1</strong> Maxwell Stress Tensor</h2>
+<p>The Maxwell stress tensor encompasses the way that electromagnetic fields an exert forces/stresses in 3D space:</p>
+<p>
+<script type="math/tex; mode=display">
+\vec p = \text{ momentum }
+</script>
+The basic force laws of E&amp;M are
+<script type="math/tex; mode=display">
+\dv{\vec p}{t} = q \left( \vec E + \vec v \cross \vec B \right)
+</script>
+On an element of volume, the change in momentum is
+<script type="math/tex; mode=display">
+\dv{P}{t} = \int_V (\rho E + j \cross B) \dd V
+</script>
+The maxwell equations give the source terms as
+<script type="math/tex; mode=display">
+\rho = \epsilon _0 \div \vec E \qquad \vec j = \frac{1}{\mu_0} \left( \curl \vec B - \mu_0 \epsilon_0 \pdv{E}{t} \right)
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\rho \vec E + \vec j \cross \vec B = \vec E \epsilon_0 (\div E) - \frac{B}{\mu_0} \cross ( \curl B - \mu_0 \epsilon_0 \pdv{E}{t} )
+</script>
+</p>
+<p>Using the chain rule <script type="math/tex"> \pdv{}{t} (E \cross B) = \pdv{E}{t} \cross B + E \cross \pdv{B}{t} </script> and <script type="math/tex"> B( \div B) = 0 </script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\rho E + j \cross B = \epsilon_0 E( \div E) - \frac{B \cross (\curl B)}{\mu_0} + \epsilon_0 \left[ E \cross \pdv{B}{t} - \pdv{}{t} (E \cross B) \right]
+</script>
+</p>
+<p>From Faraday, <script type="math/tex"> \pdv{B}{t} \rightarrow \curl E </script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+= \epsilon_0 E(\div E) + \frac{B(\div B)}{\mu_0} - \frac{B \cross (\curl B)}{\mu_0} - \epsilon_0 E \cross (\curl E) - \epsilon_0 \pdv{}{t} (E \cross B)
+</script>
+</p>
+<p>Finally we've got everything in place to use the identity
+<script type="math/tex; mode=display">
+\frac{1}{2} \grad (B^2) = \frac{1}{2} \grad (\vec B \cdot \vec B) = (\vec B \cdot \grad) \vec B + \vec B \cross (\curl \vec B)
+</script>
+</p>
+<p>All together,
+<script type="math/tex; mode=display">
+\rho E + j \cross B = \epsilon_0 \left[ E ( \div E ) + (\vec E \cdot \grad) E - \frac{1}{2} \grad (E^2) \right] + \frac{1}{\mu_0} \left[B (\div B) + (\vec B \cdot \grad) B - \frac{1}{2} \grad (B^2) \right] - \epsilon_0 \pdv{}{t} ( \vec E \cross \vec B)
+</script>
+</p>
+<p>Integrating over a volume, </p>
+<p>
+<script type="math/tex; mode=display">
+\dv{P}{t} + \epsilon_0 \pdv{}{t} \int \vec E \cross \vec B \dd V
+</script>
+<script type="math/tex; mode=display">
+\qquad = \int \epsilon_0 \left[ E(\div E) + (E \cdot \grad) E - \frac{1}{2} \grad(E^2) \right] + \frac{1}{\mu_0} \left[ B(\div B) + (B \cdot \grad) B - \frac{1}{2} \grad (B^2) \right] \dd V
+</script>
+</p>
+<p>To simplify, we use another identity</p>
+<p>
+<script type="math/tex; mode=display">
+E (\div E) + (E \cdot \grad) E - \frac{1}{2} \grad (E^2) = \div (\vec E \vec E - \frac{1}{2} \vec 1 E^2)
+</script>
+</p>
+<p>And the same is true for <script type="math/tex"> \vec B </script>. The momentum change expression is simplified if we define the Maxwell stress tensor as</p>
+<p>
+<script type="math/tex; mode=display">
+\vec T = \epsilon_0 \vec E \vec E + \frac{\vec B \vec B}{\mu_0} - \frac{1}{2} \vec 1 \left( \epsilon_0 E^2 + \frac{B^2}{\mu_0} \right)
+</script>
+</p>
+<p>That lets us re-cast the momentum change in a volume as a stress tensor on a surface</p>
+<p>
+<script type="math/tex; mode=display">
+\dv{\vec p}{t} + \epsilon_0 \dv{}{t} \int ( \vec E \cross \vec B) \dd V = \int \div \vec T \dd V = \int \vec T \cdot \vu{n} \dd \vec a
+</script>
+</p>
                 
                   
                 
@@ -409,6 +570,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ch10-1/" title="10.1 - Statistical Mechanics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                10.1 - Statistical Mechanics
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ch20-1/" title="20.1 - Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                20.1 - Introduction
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
