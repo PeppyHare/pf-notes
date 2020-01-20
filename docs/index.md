@@ -16,6 +16,9 @@ Keepin track of stuff while I learn it
 - 20 - Introduction to CFD
     - [20.1 - Introduction](ch20-1.md)
     - [20.2 - Governing Equations](ch20-2.md)
+    - [20.3 - Reduced Models](ch20-3.md)
+    - [20.4 - Equation Types](ch20-4.md)
+    - [20.5 - Panel Method](ch20-5.md)
 
 
 ### Internals
