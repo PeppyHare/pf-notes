@@ -367,6 +367,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#example-application-to-frc-field-reversed-configuration" title="Example: Application to FRC (Field-Reversed Configuration)" class="md-nav__link">
+    Example: Application to FRC (Field-Reversed Configuration)
+  </a>
+  
+</li>
+      
       
       
       
@@ -426,6 +433,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch20-3/" title="20.3 - Reduced Models" class="md-nav__link">
+      20.3 - Reduced Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch20-4/" title="20.4 - Equation Types" class="md-nav__link">
+      20.4 - Equation Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch20-5/" title="20.5 - Panel Method" class="md-nav__link">
+      20.5 - Panel Method
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -458,6 +501,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#example-application-to-frc-field-reversed-configuration" title="Example: Application to FRC (Field-Reversed Configuration)" class="md-nav__link">
+    Example: Application to FRC (Field-Reversed Configuration)
+  </a>
+  
+</li>
+      
       
       
       
@@ -478,6 +528,7 @@
                 
                 
                 <h1 id="102-review-of-em"><strong>10.2</strong> Review of E&amp;M</h1>
+<p>Homework group: just me n leek42@uw.edu</p>
 <p>Realistically, all of the E&amp;M review comes from https://peppyhare.github.io/griffiths-em/</p>
 <h2 id="1011-maxwell-stress-tensor"><strong>10.1.1</strong> Maxwell Stress Tensor</h2>
 <p>The Maxwell stress tensor encompasses the way that electromagnetic fields an exert forces/stresses in 3D space:</p>
@@ -554,6 +605,76 @@ E (\div E) + (E \cdot \grad) E - \frac{1}{2} \grad (E^2) = \div (\vec E \vec E -
 \dv{\vec p}{t} + \epsilon_0 \dv{}{t} \int ( \vec E \cross \vec B) \dd V = \int \div \vec T \dd V = \int \vec T \cdot \vu{n} \dd \vec a
 </script>
 </p>
+<h2 id="example-application-to-frc-field-reversed-configuration">Example: Application to FRC (Field-Reversed Configuration)</h2>
+<p>In a FRC confinement experiment, a bias field <script type="math/tex"> B_{\infty} </script> is applied and quickly reversed, resulting in poloidal fields opposite the bias current.</p>
+<p align="center"> <img alt="Figure 10.1" src="../img/10.1.png" /> </p>
+
+<p>
+<script type="math/tex; mode=display">
+\vec T = \frac{\vec B \vec B}{\mu_0} - \frac{1}{2} \vec I \left( \frac{B^2}{\mu_0} \right)
+</script>
+</p>
+<p>If we want to confine a plasma in the center of the FRC, we want to calculate the force on our plasma (electron fluid).</p>
+<p>
+<script type="math/tex; mode=display">
+\vec F = \int \vec T \cdot \vu n \dd a
+</script>
+</p>
+<p>At the left end of the configuration where we have <script type="math/tex"> \vec B = B_z \vu z </script> and we define <script type="math/tex"> B_1 = B_r, B_2 = B_z, B_3 = B_\theta </script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\vec T = \begin{bmatrix} - \frac{1}{2} \frac{B_0 ^2}{\mu_0} & 0  & 0 \\ 0 & \frac{B_0 ^2}{\mu_0} - \frac{1}{2} \frac{B_0 ^2}{\mu_0} & 0 \\ 0 & 0 & - \frac{1}{2} \frac{B_0 ^2}{\mu_0} \end{bmatrix}
+</script>
+<script type="math/tex; mode=display">
+\vec T \cdot \vu n = \begin{bmatrix} 0 \\ -\frac{1}{2} \frac{B_0 ^2}{\mu_0} \vu z \\ 0 \end{bmatrix}
+</script>
+</p>
+<p>Now what about at the sides? There, <script type="math/tex"> B_r \neq 0 </script> and</p>
+<p>
+<script type="math/tex; mode=display">
+\vec T \cdot \vu n = \begin{bmatrix} - \frac{1}{2} \frac{B^2}{\mu_0} + \frac{B_r ^2}{\mu_0} & \frac{B_r B_z}{\mu_0} & 0 \\ \frac{B_r B_z}{\mu_0} & - \frac{1}{2} \frac{B^2}{\mu_0} + \frac{B_z ^2}{\mu_0} & 0 \\ 0 & 0 & - \frac{1}{2} \frac{B^2}{\mu_0} \end{bmatrix} \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} = \begin{bmatrix} - \frac{1}{2} \frac{B^2}{\mu_0} + \frac{B_r ^2}{\mu_0} \\ \frac{B_r B_z}{\mu_0} \\ 0 \end{bmatrix}
+</script>
+</p>
+<p>The total force is the sum 
+<script type="math/tex; mode=display">
+\vec F = \int \vec T \cdot \vu n \dd a = \left( - \frac{1}{2} \frac{B_0 ^2}{\mu_0} + \frac{1}{2} \frac{B_{0} ^2}{\mu_0} \right) \pi a ^2 \vu z + \text{ contrib. from sides}
+</script>
+</p>
+<p>By symmetry, the <script type="math/tex"> r </script> components add to zero</p>
+<p>
+<script type="math/tex; mode=display">
+F_z = \frac{\pi a^2}{2 \mu_0} (B_{\infty} ^2 - B_0 ^2) + \frac{2 \pi a}{\mu_0} \int B_r B_z \dd z
+</script>
+</p>
+<p align="center"> <img alt="Figure 10.2" src="../img/10.2.png" /> </p>
+
+<p>The magnetic flux at the open ends must go somewhere
+<script type="math/tex; mode=display">
+\Phi = B_z \pi a^2 (1 - x_s ^2) 
+</script>
+<script type="math/tex; mode=display">
+2 \pi a B_r \dd z = - \dd \Phi
+</script>
+<script type="math/tex; mode=display">
+F_z = \frac{1}{2 \mu_0 \pi a^2} ( \Phi_{\infty} ^2 - \Phi_0 ^2 ) - \frac{1}{\mu_0 } \int_{\Phi_0} ^{\Phi_{\infty}} \frac{\Phi}{\pi a^2 ( 1 - x_s ^2)} \dd \Phi
+</script>
+</p>
+<p>Assume <script type="math/tex"> x_s </script> is constant (or that it is an appropriate average value)</p>
+<p>
+<script type="math/tex; mode=display">
+F_z = \frac{1}{2 \mu_0 \pi a^2} ( \Phi_{\infty} ^2 - \Phi_0 ^2 ) - \frac{ \Phi_{\infty} ^2 - \Phi_0 ^2}{2 \mu_0 \pi a ^2 (1 - x_s ^2)}
+</script>
+<script type="math/tex; mode=display">
+= \frac{\pi a^2}{2 \mu_0} ( B_\infty ^2 - B_0 ^2) \left( 1 - \frac{1}{1 - x_s ^2} \right)
+</script>
+<script type="math/tex; mode=display">
+= \frac{\pi a^2}{2 \mu_0 } ( B_0 ^2 - B_{\infty} ^2 ) \frac{x_s ^2}{1 - x_s ^2}
+</script>
+<script type="math/tex; mode=display">
+= \frac{A_{frc}}{2 \mu_0} ( B_0 ^2 - B_{\infty} ^2 ) \left( \frac{1}{1 - x_s ^2} \right)
+</script>
+Where <script type="math/tex"> A_{frc} = \pi a^2 x_s^2 </script> is the cross-sectional area of the FRC. So, in the simple picture the force is the same as the initial flux, reduced by an equivalent area of the FRC torus.</p>
                 
                   
                 
