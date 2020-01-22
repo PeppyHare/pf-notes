@@ -7,12 +7,15 @@ nav:
     - 10 - Background Review:
       - 10.1 - Statistical Mechanics: ch10-1.md
       - 10.2 - Review of E&M: ch10-2.md
-    - 20 - Introduction to Compressible CFD:
-      - 20.1 - Introduction: ch20-1.md
-      - 20.2 - Governing Equations: ch20-2.md
-      - 20.3 - Reduced Models: ch20-3.md
-      - 20.4 - Equation Types: ch20-4.md
-      - 20.5 - Panel Method: ch20-5.md
+    - Introduction to Compressible CFD:
+      - Introduction:
+        - 20.1 - Introduction: ch20-1.md
+        - 20.2 - Governing Equations: ch20-2.md
+        - 20.3 - Reduced Models: ch20-3.md
+        - 20.4 - Equation Types: ch20-4.md
+        - 20.5 - Panel Method: ch20-5.md
+      - Finite Differencing:
+        - 21.1 - Finite Difference Algorithms: ch21-1.md
 
 # Cool material theme: https://squidfunk.github.io/mkdocs-material/
 theme:
