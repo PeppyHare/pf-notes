@@ -1,0 +1,50 @@
+/******************************************************************************/
+/*  MAIN                                                                      */
+/******************************************************************************/
+
+/* Colorize header and footer */
+.md-header, .md-hero, .md-footer {
+    background: #004c98;
+  }
+  
+/******************************************************************************/
+/*  TYPOGRAPHY                                                                */
+/******************************************************************************/
+
+a:hover {
+cursor: pointer;
+}
+
+/* Override font size */
+/*.md-typeset {
+font-size: 0.7rem;
+line-height: 1.7;
+}
+*/
+/* Override H1 color and weight */
+/*.md-typeset h1 {
+color: #007bff;
+font-weight: 700;
+}
+*/
+/******************************************************************************/
+/*  NAVIGATION                                                                */
+/******************************************************************************/
+
+.md-tabs {
+background: #000;
+}
+
+/* Add borders on hover */
+li.md-tabs__item a:hover {
+padding-bottom: 10px;
+border-bottom: 4px solid #0064FF;
+}
+/*
+.md-sidebar--secondary {
+    margin-left: 76.25rem;
+}
+
+.md-grid {
+    max-width: 75rem;
+}*/
