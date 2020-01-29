@@ -22,6 +22,8 @@ Keepin track of stuff while I learn it
         - [20.5 - Panel Method](ch20-5.md)
     - 21 - Finite Differencing
         - [21.1 - Finite Difference Algorithms](ch21-1.md)
+        - [21.2 - Explicit Finite Difference Algorithms](ch21-2.md)
+        - [21.3 - Finite Difference and Finite Volume Methods](ch21-3.md)
 
 
 ### Internals
