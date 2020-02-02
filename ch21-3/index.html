@@ -307,11 +307,42 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      10 - Background Review
+      Physics of Fusion Plasmas
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        10 - Background Review
+        Physics of Fusion Plasmas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch10-0/" title="Rules of thumb" class="md-nav__link">
+      Rules of thumb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Review
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Review
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -337,6 +368,59 @@
     <a href="../ch10-2/" title="10.2 - Review of E&M" class="md-nav__link">
       10.2 - Review of E&M
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Plasma Properties
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Plasma Properties
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch11-1/" title="11.1 - Wall-supported Plasma" class="md-nav__link">
+      11.1 - Wall-supported Plasma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch11-3/" title="11.3 - Oscillations" class="md-nav__link">
+      11.3 - Oscillations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -545,6 +629,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch21-4/" title="21.4 - Implicit Algorithms" class="md-nav__link">
+      21.4 - Implicit Algorithms
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -618,7 +714,53 @@
 <script type="math/tex; mode=display">
 = \sum_{\text{faces}} \vec{F} \cdot \vec{\dd S}
 </script>
+<script type="math/tex; mode=display">
+= F_{x_{i+1/2}} + \dd S_{x_{i+1/2}} + F_{y_{j+1/2}} \dd S _{u_{j+1/2}} + F_{x_{i-1/2}} + \dd S_{x_{i-1/2}} 
+</script>
 </p>
+<pre><code>        |  j+1/2  |
+-------------*-------------
+        |         |          
+        |         |          
+ i-1/2  *   ij    * i+1/2         
+        |         |          
+        |         |          
+        |         |          
+-------------*-------------
+        |  j-1/2  |       
+</code></pre>
+
+<p>If you have an orthogonal regular grid, <script type="math/tex"> \dd V_{ijk} = \Delta x \Delta y \Delta z </script>, then 
+<script type="math/tex; mode=display">
+\dd S_{x_{i+1/2}} = \Delta y \Delta z
+</script>
+<script type="math/tex; mode=display">
+F_{x_{i+1/2}} = \frac{F_x i + F_{x_{i+1}}}{2}
+</script>
+and the same for other terms, then <script type="math/tex"> \dd V_{ijk} </script> reduces to the finite difference operator and the finite volume method is exactly equivalent to the finite difference method. In this sense, finite volume algorithms are simply a straightforward extension of finite difference algorithms, where instead of simply looking ahead/behind by some amount <script type="math/tex"> Delta x </script>, we must here take the appropriate dot products to calculate fluxes across faces of oddly-shaped cells. We get to maintain the conservation form</p>
+<p>
+<script type="math/tex; mode=display">
+\pdv{Q}{t} = \div F = 0
+</script>
+</p>
+<p>while using finite difference methods. Finite volume methods are some of the most popular for commercial CFD codes.</p>
+<!-- Questions for next class:
+
+ - Project 3.2: when we set the initial value at t=0 and we have periodic boundary conditions set, are we supposed to wrap the function around the boundary or just evaluate it on the given interval?
+    just apply boundary conditions after each step
+    you can also set an integer jp1 = 1 + mod(j, jmax) so u_j+1 = u(jp1) and u_j-1 = u(jm1) where jm1 = jmax - mod(jmax + 1 - j, jmax)
+ - Project 3.2: Is the step function a regular heaviside step function, or a finite-width square wave like the one in project 1? If it's step, how are we supposed to manage periodic boundary conditions? -->
+
+<p>The modified PDE gives the accuracy from the leading order error term, e.g. <script type="math/tex"> O(\Delta x ^2 </script>. Because of the way we expand our Taylor series, the leading order error term tends to look like</p>
+<p>
+<script type="math/tex; mode=display">
+\propto \pdv{^3 u}{x^3} \Delta x^2
+</script>
+<script type="math/tex; mode=display">
+\propto \pdv{^2 u}{x^2} \Delta x
+</script>
+</p>
+<p>One thing we know about wave PDEs is that adding a term with an odd order derivative will introduce dispersive effects, and adding a term with an even order derivative will add diffusive (viscous) effects. </p>
                 
                   
                 
@@ -653,6 +795,20 @@
             </div>
           </a>
         
+        
+          <a href="../ch21-4/" title="21.4 - Implicit Algorithms" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                21.4 - Implicit Algorithms
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
