@@ -10,9 +10,12 @@ Keepin track of stuff while I learn it
 - 1 - The Plasma State
     - [1.1 - Definition of Plasma](ch1-1.md)
     - [1.2 - Particle motion in EM fields](ch1-2.md)
-- 10 - Background Review
-    - [10.1 - Statistical Mechanics](ch10-1.md)
-    - [10.2 - Review of E&M](ch10-2.md)
+- Physics of Fusion Plasmas
+    - 10 - Review
+        - [10.1 - Statistical Mechanics](ch10-1.md)
+        - [10.2 - Review of E&M](ch10-2.md)
+    - 11 - Plasma Properties
+        - [11.1 - Wall-supported Plasma](ch11-1.md)
 - Introduction to CFD
     - 20 - Introduction
         - [20.1 - Introduction](ch20-1.md)
@@ -24,6 +27,7 @@ Keepin track of stuff while I learn it
         - [21.1 - Finite Difference Algorithms](ch21-1.md)
         - [21.2 - Explicit Finite Difference Algorithms](ch21-2.md)
         - [21.3 - Finite Difference and Finite Volume Methods](ch21-3.md)
+        - [21.4 - Implicit Algorithms](ch21-4.md)
 
 
 ### Internals
