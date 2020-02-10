@@ -413,6 +413,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../ch11-2/" title="11.2 - Collisions" class="md-nav__link">
+      11.2 - Collisions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ch11-3/" title="11.3 - Oscillations" class="md-nav__link">
       11.3 - Oscillations
     </a>
@@ -637,13 +649,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#boundary-conditions" title="Boundary Conditions" class="md-nav__link">
-    Boundary Conditions
-  </a>
-  
-</li>
-      
       
       
       
@@ -652,6 +657,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch21-5/" title="21.5 - Numerical Boundary Conditions" class="md-nav__link">
+      21.5 - Numerical Boundary Conditions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch21-6/" title="21.6 - Method of Lines" class="md-nav__link">
+      21.6 - Method of Lines
+    </a>
   </li>
 
         
@@ -695,13 +724,6 @@
         <li class="md-nav__item">
   <a href="#theta-algorithm" title="Theta Algorithm" class="md-nav__link">
     Theta Algorithm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#boundary-conditions" title="Boundary Conditions" class="md-nav__link">
-    Boundary Conditions
   </a>
   
 </li>
@@ -860,50 +882,6 @@ u_j ^{n+1} + \Theta \frac{ a \Delta t}{\Delta x} \left( \frac{ u_{j+1} ^{n+1} - 
 </ul>
 <p>We find that by using <script type="math/tex"> \Theta \neq 1 </script>, we can improve the performance (condition number of operator matrix) by making the operator matrix more diagonally dominant. It can also reduce diffusion (possibly making it better for shock capture), with the flip-side being an increase in dispersion. It can also increase the temporal accuracy -- we find that for <script type="math/tex"> \Theta = 1/2 </script>, the accuracy is <script type="math/tex"> O(\Delta t^2, \Delta x^2) </script>
 </p>
-<h2 id="boundary-conditions">Boundary Conditions</h2>
-<p>The linear advection equation is</p>
-<p>
-<script type="math/tex; mode=display">
-\pdv{u}{t} + a \pdv{u}{x} = 0
-</script>
-</p>
-<p>For it to be a well-posed mathematical problem, you also need the Cauchy data (boundary and initial conditions). From the order of the differential operators, we know that we need one boundary condition (constraint on <script type="math/tex"> u(x_b) </script> for all <script type="math/tex"> t </script> ) and one initial condition (constraint on <script type="math/tex"> u(x) </script> at <script type="math/tex"> t = 0 </script>).</p>
-<p>If we are solving the heat diffusion equation</p>
-<p>
-<script type="math/tex; mode=display">
-\pdv{T}{t} = \alpha \pdv{^2 T}{x^2}
-</script>
-</p>
-<p>Then we need 1 initial condition and 2 boundary conditions.</p>
-<p>Back to the linear advection equation, if we say</p>
-<p>
-<script type="math/tex; mode=display">
-u(t = 0, x) = f(x) \quad \text{and} \quad u(t, x=0) = g_D(t) \qquad \text{(Dirichlet BC)}
-</script>
-For wave speeds less than 0 (<script type="math/tex"> a < 0 </script>), then we would instead specify <script type="math/tex"> u(t, x=L) </script>.</p>
-<p>The way boundary conditions are implemented in the Forward Euler algorithm (as an example):</p>
-<p>
-<script type="math/tex; mode=display">
-u_j ^{n+1} = u_j ^n - \frac{ a \Delta t}{\Delta x} (u_j ^n - u_{j-1} ^n)
-</script>
-</p>
-<ol>
-<li>We begin by specifying <script type="math/tex"> u_j ^0 = f(x_j) </script>, i.e. we populate the solution at <script type="math/tex"> t=0 </script>.</li>
-<li>Sweep through the domain starting at <script type="math/tex"> j=1 </script> towards <script type="math/tex"> j=J </script>
-<script type="math/tex; mode=display">
-    u_1 ^{n+1} = u_1 ^n - \frac{a \Delta t}{\Delta x} (u_1 ^n - u_0 ^n)
-    </script>
-    where
-    <script type="math/tex; mode=display">
-    u_0 ^n = g_D(t^n)
-    </script>
-</li>
-<li>Notice, at <script type="math/tex"> j=J </script>
-<script type="math/tex; mode=display">
-    u_J ^{n+1} = u_J ^n - \frac{a \Delta t}{\Delta x} (u_J ^n - u_{J-1} ^n)
-    </script>
-    There is no boundary condition required since there is no data required from outside of our domain. If we do require such data, we'll need to do something special here.</li>
-</ol>
                 
                   
                 
@@ -938,6 +916,20 @@ u_j ^{n+1} = u_j ^n - \frac{ a \Delta t}{\Delta x} (u_j ^n - u_{j-1} ^n)
             </div>
           </a>
         
+        
+          <a href="../ch21-5/" title="21.5 - Numerical Boundary Conditions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                21.5 - Numerical Boundary Conditions
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

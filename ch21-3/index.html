@@ -413,6 +413,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../ch11-2/" title="11.2 - Collisions" class="md-nav__link">
+      11.2 - Collisions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ch11-3/" title="11.3 - Oscillations" class="md-nav__link">
       11.3 - Oscillations
     </a>
@@ -641,6 +653,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch21-5/" title="21.5 - Numerical Boundary Conditions" class="md-nav__link">
+      21.5 - Numerical Boundary Conditions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch21-6/" title="21.6 - Method of Lines" class="md-nav__link">
+      21.6 - Method of Lines
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -737,7 +773,7 @@
 <script type="math/tex; mode=display">
 F_{x_{i+1/2}} = \frac{F_x i + F_{x_{i+1}}}{2}
 </script>
-and the same for other terms, then <script type="math/tex"> \dd V_{ijk} </script> reduces to the finite difference operator and the finite volume method is exactly equivalent to the finite difference method. In this sense, finite volume algorithms are simply a straightforward extension of finite difference algorithms, where instead of simply looking ahead/behind by some amount <script type="math/tex"> Delta x </script>, we must here take the appropriate dot products to calculate fluxes across faces of oddly-shaped cells. We get to maintain the conservation form</p>
+and the same for other terms, then <script type="math/tex"> \dd V_{ijk} </script> reduces to the finite difference operator and the finite volume method is exactly equivalent to the finite difference method. In this sense, finite volume algorithms are simply a straightforward extension of finite difference algorithms, where instead of simply looking ahead/behind by some amount <script type="math/tex"> \Delta x </script>, we must here take the appropriate dot products to calculate fluxes across faces of oddly-shaped cells. We get to maintain the conservation form</p>
 <p>
 <script type="math/tex; mode=display">
 \pdv{Q}{t} = \div F = 0
