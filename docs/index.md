@@ -28,6 +28,8 @@ Keepin track of stuff while I learn it
         - [21.2 - Explicit Finite Difference Algorithms](ch21-2.md)
         - [21.3 - Finite Difference and Finite Volume Methods](ch21-3.md)
         - [21.4 - Implicit Algorithms](ch21-4.md)
+        - [21.5 - Numerical Boundary Conditions](ch21-5.md)
+        - [21.6 - Method of Lines](ch21-6.md)
 
 
 ### Internals

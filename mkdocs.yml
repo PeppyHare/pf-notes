@@ -11,6 +11,7 @@ nav:
         - 10.2 - Review of E&M: ch10-2.md
       - Plasma Properties:
         - 11.1 - Wall-supported Plasma: ch11-1.md
+        - 11.2 - Collisions: ch11-2.md
         - 11.3 - Oscillations: ch11-3.md
     - Introduction to Compressible CFD:
       - Introduction:
@@ -24,6 +25,8 @@ nav:
         - 21.2 - Explicit Finite Difference Algorithms: ch21-2.md
         - 21.3 - Finite Difference and Finite Volume Methods: ch21-3.md
         - 21.4 - Implicit Algorithms: ch21-4.md
+        - 21.5 - Numerical Boundary Conditions: ch21-5.md
+        - 21.6 - Method of Lines: ch21-6.md
 
 # Cool material theme: https://squidfunk.github.io/mkdocs-material/
 theme:
