@@ -11,11 +11,20 @@ Keepin track of stuff while I learn it
     - [1.1 - Definition of Plasma](ch1-1.md)
     - [1.2 - Particle motion in EM fields](ch1-2.md)
 - Physics of Fusion Plasmas
-    - 10 - Review
-        - [10.1 - Statistical Mechanics](ch10-1.md)
-        - [10.2 - Review of E&M](ch10-2.md)
-    - 11 - Plasma Properties
-        - [11.1 - Wall-supported Plasma](ch11-1.md)
+    - [Rules of Thumb](ch10-0.md)
+    - Review
+        - [Statistical Mechanics](ch10-1.md)
+        - [Review of E&M](ch10-2.md)
+    - Unmagnetized Plasma
+        - [Wall-supported Plasma](ch11-1.md)
+    - Classical Transport Properties
+        - [Collisions](ch12-1.md)
+        - [Resistivity](ch12-2.md)
+        - [Thermal Conduction](ch12-3.md)
+        - [Viscosity](ch12-4.md)
+- Plasma Theory
+    - [Introduction](ch12-1.md)
+    - [Plasma Models](ch12-2.md)
 - Introduction to CFD
     - 20 - Introduction
         - [20.1 - Introduction](ch20-1.md)
