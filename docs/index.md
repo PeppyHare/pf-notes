@@ -39,6 +39,7 @@ Keepin track of stuff while I learn it
         - [21.4 - Implicit Algorithms](ch21-4.md)
         - [21.5 - Numerical Boundary Conditions](ch21-5.md)
         - [21.6 - Method of Lines](ch21-6.md)
+- [working...](inprogress.md)
 
 
 ### Internals
