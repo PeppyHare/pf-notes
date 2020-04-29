@@ -648,6 +648,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch12-6/" title="MHD Boundary Conditions" class="md-nav__link">
+      MHD Boundary Conditions
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1720,6 +1732,66 @@ k_\perp \sim \frac{r_{L, i} ^2}{\tau_{ii}}
 \frac{k_\parallel}{k_\perp} \sim \left( \frac{\lambda}{r_{L, i}} \right)^2 \sim (\omega_{c, i} \tau_{ii} )^2
 </script>
 </p>
+<p>This changes one of our conditions for validity. Specifically, we can write</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{r_{L, i}}{L} \frac{1}{ \omega_{c, i} \tau_{i i}} = 254 \frac{\mu \beta}{Z^2 L_{cm} T_{eV} ^2}
+</script>
+</p>
+<p>or</p>
+<p>
+<script type="math/tex; mode=display">
+T_{eV} \gg 16 \frac{\mu ^{1/2} \beta^{1/2}}{Z L^{1/2}}
+</script>
+</p>
+<p>This is now only slightly more restrictive than the low-resistivity condition. In fact, most of the plasmas that we looked at before (large tokamaks &amp; toruses, propulsion systems) which had temperatures above the validity range now fall comfortably within the region of validity. The perpendicular MHD model is equivalent to a collisionless model, giving a much wider applicability than the collisional MHD model.</p>
+<p>What about the parallel component? Our collisionality condition still isn't valid parallel to the field. Basically, we ignore the parallel component, which is the same as assuming that <script type="math/tex"> \rho </script>, <script type="math/tex"> T </script>, <script type="math/tex"> p </script> are constant along magnetic field lines, with <script type="math/tex"> \div \vec v = 0 </script> . Let's write out the expressions for collision-less MHD and for ideal MHD and compare:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Collisionless MHD</th>
+<th>Ideal MHD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continuity</td>
+<td>
+<script type="math/tex"> \pdv{\rho}{t} = 0 </script>
+</td>
+<td>
+<script type="math/tex"> \pdv{\rho}{t} = - \rho \div \vec v </script>
+</td>
+</tr>
+<tr>
+<td>Momentum</td>
+<td>
+<script type="math/tex"> \rho \dv{\vec v_\perp}{t} = \vec j \cross \vec B - \grad_\perp p </script>
+</td>
+<td>
+<script type="math/tex"> \rho \dv{\vec v}{t} = \vec j \cross \vec B - \grad p </script>
+</td>
+</tr>
+<tr>
+<td>Parallel constraint</td>
+<td>
+<script type="math/tex"> \vec B \cdot \grad \frac{v_\parallel}{B} = - \div \vec v _\perp </script>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>
+<script type="math/tex"> \dv{p}{t} = 0 </script>
+</td>
+<td>
+<script type="math/tex"> \dv{p}{t} = - \gamma p \div \vec v </script>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Collisionless MHD reproduces many of the effects of ideal MHD but has a wider region of validity. Corollary: ideal MHD is accurate beyond its region of validity, unless results lead to parallel gradients. For example, we know that MHD is not valid when representing confinement of a plasma confined in a magnetic mirror, which is an inherently kinetic phenomenon. But ideal MHD <em>can</em> generate parallel gradients within its region of validity, and we need to be careful. Ideal MHD does not require different models <script type="math/tex"> \parallel </script> and <script type="math/tex"> \perp </script> to the magnetic field, and is therefore preferred. We will continue to use ideal MHD outside of its region of validity.</p>
                 
                   
                 
@@ -1755,13 +1827,13 @@ k_\perp \sim \frac{r_{L, i} ^2}{\tau_{ii}}
           </a>
         
         
-          <a href="../ch20-1/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch12-6/" title="MHD Boundary Conditions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Introduction
+                MHD Boundary Conditions
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

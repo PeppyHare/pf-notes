@@ -36,7 +36,7 @@
     
     
       
-        <title>Explicit Finite Difference Algorithms - Evan's Notes</title>
+        <title>MHD Boundary Conditions - Evan's Notes</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#explicit-finite-difference-algorithms" tabindex="1" class="md-skip">
+      <a href="#boundary-conditions" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               Evan's Notes
             </span>
             <span class="md-header-nav__topic">
-              Explicit Finite Difference Algorithms
+              MHD Boundary Conditions
             </span>
           
         </div>
@@ -409,10 +409,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       UWAA558 - Plasma Theory
@@ -440,10 +442,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       Plasma Models
@@ -507,34 +511,91 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../ch12-6/" title="MHD Boundary Conditions" class="md-nav__link">
-      MHD Boundary Conditions
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        MHD Boundary Conditions
+      </label>
+    
+    <a href="./" title="MHD Boundary Conditions" class="md-nav__link md-nav__link--active">
+      MHD Boundary Conditions
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#perfectly-conducting-wall" title="Perfectly Conducting Wall" class="md-nav__link">
+    Perfectly Conducting Wall
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insulating-boundary" title="Insulating Boundary" class="md-nav__link">
+    Insulating Boundary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vacuum-region" title="Vacuum Region" class="md-nav__link">
+    Vacuum Region
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conservation-of-magnetic-flux-frozen-in-flux" title="Conservation of Magnetic Flux ("Frozen-In" Flux)" class="md-nav__link">
+    Conservation of Magnetic Flux ("Frozen-In" Flux)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       UWAA543 - Introduction to Compressible CFD
@@ -634,12 +695,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
     <label class="md-nav__link" for="nav-4-2">
       Finite Differencing
@@ -667,90 +726,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Explicit Finite Difference Algorithms
-      </label>
-    
-    <a href="./" title="Explicit Finite Difference Algorithms" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch21-2/" title="Explicit Finite Difference Algorithms" class="md-nav__link">
       Explicit Finite Difference Algorithms
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#explicit-algorithms" title="Explicit Algorithms" class="md-nav__link">
-    Explicit Algorithms
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#forward-euler-ftfs" title="Forward Euler (FTFS)" class="md-nav__link">
-    Forward Euler (FTFS)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#forward-time-centered-space-ftcs" title="Forward-Time Centered Space (FTCS)" class="md-nav__link">
-    Forward-Time Centered Space (FTCS)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#leap-frog" title="Leap-Frog" class="md-nav__link">
-    Leap-Frog
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lax-algorithm" title="Lax Algorithm" class="md-nav__link">
-    Lax Algorithm
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lax-wendroff-algorithm" title="Lax-Wendroff Algorithm" class="md-nav__link">
-    Lax-Wendroff Algorithm
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -893,50 +873,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#explicit-algorithms" title="Explicit Algorithms" class="md-nav__link">
-    Explicit Algorithms
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#forward-euler-ftfs" title="Forward Euler (FTFS)" class="md-nav__link">
-    Forward Euler (FTFS)
+  <a href="#perfectly-conducting-wall" title="Perfectly Conducting Wall" class="md-nav__link">
+    Perfectly Conducting Wall
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#forward-time-centered-space-ftcs" title="Forward-Time Centered Space (FTCS)" class="md-nav__link">
-    Forward-Time Centered Space (FTCS)
+      
+        <li class="md-nav__item">
+  <a href="#insulating-boundary" title="Insulating Boundary" class="md-nav__link">
+    Insulating Boundary
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#leap-frog" title="Leap-Frog" class="md-nav__link">
-    Leap-Frog
+      
+        <li class="md-nav__item">
+  <a href="#vacuum-region" title="Vacuum Region" class="md-nav__link">
+    Vacuum Region
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#lax-algorithm" title="Lax Algorithm" class="md-nav__link">
-    Lax Algorithm
+      
+        <li class="md-nav__item">
+  <a href="#conservation-of-magnetic-flux-frozen-in-flux" title="Conservation of Magnetic Flux ("Frozen-In" Flux)" class="md-nav__link">
+    Conservation of Magnetic Flux ("Frozen-In" Flux)
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lax-wendroff-algorithm" title="Lax-Wendroff Algorithm" class="md-nav__link">
-    Lax-Wendroff Algorithm
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -956,169 +916,143 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch21-2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/PeppyHare/pf-notes/edit/master/docs/ch12-6.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="explicit-finite-difference-algorithms">Explicit Finite Difference Algorithms</h1>
-<h2 id="explicit-algorithms">Explicit Algorithms</h2>
-<h3 id="forward-euler-ftfs">Forward Euler (FTFS)</h3>
-<pre><code>
-n+1 --------|--------*--------|--------
-
-
-n   --------|--------*--------*--------
-            j-1      j        j+1
-
-</code></pre>
-
+                <h1 id="boundary-conditions">Boundary Conditions</h1>
+<p>Mathematically, a well-posed problem requires both governing equations and a complete set of boundary conditions (the Cauchy data for the problem). The most common boundary conditions we use are perfectly conducting walls (flux surfaces) or a vacuum region.</p>
+<h3 id="perfectly-conducting-wall">Perfectly Conducting Wall</h3>
+<p>For the case where the plasma extends out to a perfectly conducting (impermeable) wall. Perfectly conducting walls do not support tangential electric field:</p>
 <p>
 <script type="math/tex; mode=display">
-u_j ^{n+1} = u_j ^n - \frac{a \Delta t}{\Delta x} (u_{j+1} ^n - u_j ^n)
+\left. \vec E_t \right|_{wall} = 0 \quad \rightarrow \quad \left. \vu n \cross \vec E \right| _{wall} = 0
 </script>
 </p>
-<p>The accuracy is <script type="math/tex"> O(\Delta t, \Delta x) </script>. Previously we saw that the von Neumann stability analysis shows</p>
+<p>Applying Faraday's law at the wall,</p>
 <p>
 <script type="math/tex; mode=display">
-a > 0 \rightarrow  \text{ Unconditionally unstable}
+\left. \vu n \cdot \pdv{\vec B}{t} \right|_{wall} = \left. - \vu n \cdot \curl \vec E \right|_{wall} = \left. \div (\vu n \cross \vec E) \right| _{wall} = 0
 </script>
 <script type="math/tex; mode=display">
-a < 0 \rightarrow \left| \frac{ a \Delta t}{\Delta x} \leq 1 \right| \quad \text{ for stability }
+\pdv{}{t} \vu n \cdot \vec B |_{wall} = 0
+</script>
+If initially there is no normal magnetic field, then
+<script type="math/tex; mode=display">
+\vu n \cdot \vec B|_{wall} = 0 \quad \text{if initially true}
 </script>
 </p>
-<h3 id="forward-time-centered-space-ftcs">Forward-Time Centered Space (FTCS)</h3>
+<p>And of course, for an impermeable wall,</p>
 <p>
 <script type="math/tex; mode=display">
-u_j ^{n+1} = u_j ^n - \frac{a \Delta t}{\Delta x} \frac{u_{j+1} ^n - u_{j-1} ^n}{2}
+\vu n \cdot \vec v |_{wall} = 0
 </script>
 </p>
-<p>We also found that this is unconditionally unstable.</p>
-<h3 id="leap-frog">Leap-Frog</h3>
+<p>Is this a sufficient set of boundary conditions? Think back to the governing equations in conservation form
+<script type="math/tex; mode=display">
+\pdv{}{t} \vec Q + \div \vec F = 0
+</script>
+The boundary conditions come into play when defining <script type="math/tex"> \vec F </script> at the boundary. In particular, we need to know what <script type="math/tex"> \dd \vec S \cdot \vec F |_{wall} </script> is. In our governing equations, this will involve <script type="math/tex"> \vec E </script>, <script type="math/tex"> \vec B </script>, and <script type="math/tex"> \vec v </script>.</p>
+<h3 id="insulating-boundary">Insulating Boundary</h3>
+<p>As a slight modification, an insulating boundary can have a tangential electric field. Consider a simple geometry of parallel electrodes with an insulating wall between them.</p>
+<p align="center"> <img alt="Figure 12.8" src="../img/12.8.png" /> </p>
+
+<p>From Ohm's law
+<script type="math/tex; mode=display">
+\vec E + \vec v \cross \vec B = 0
+</script>
+so the only way an electric field tangential to the wall can exist is if <script type="math/tex"> \vu n \cdot \vec v \neq 0 </script>.</p>
+<p>For either a perfectly conducting or an insulating boundary, the other variables are arbitrary: <script type="math/tex"> \rho </script> , <script type="math/tex"> p </script>, <script type="math/tex"> \vec v_t </script>, <script type="math/tex"> \vec B_t </script>.</p>
+<h3 id="vacuum-region">Vacuum Region</h3>
+<p>The plasma (radius <script type="math/tex"> R_p </script>)  is supported by a region of vacuum out to a perfectly conducting wall at some radius <script type="math/tex"> R_w </script>. We assume that there is no plasma in the vacuum region. The governing equations in vacuum are just Maxwell's equations</p>
 <p>
 <script type="math/tex; mode=display">
-u_{j}^{n+1} = u_j ^{n-1} - \frac{a \Delta t}{\Delta x} (u_{j+1} ^n - u_{j-1} ^n)
+\curl \vec B_{vac} = 0 \qquad \text{and} \qquad \div \vec B_{vac} = 0
 </script>
 </p>
-<pre><code>
-n+1 --------|--------*--------|--------
-
-
-n   --------*--------|--------*--------
-
-
-n-1 --------|--------*--------|--------
-            j-1      j        j+1
-
-</code></pre>
-
-<p>Accuracy: <script type="math/tex"> O(\Delta t^2, \Delta x^2) </script>
+<p>At the wall, 
+<script type="math/tex; mode=display">
+\vu n \cross \vec E |_{wall} = 0
+</script>
+<script type="math/tex; mode=display">
+\left. \vu n \cdot \pdv{\vec B}{t} \right|_{wall} = 0
+</script>
 </p>
-<p>Stability: It is marginally stable (<script type="math/tex"> G = 1 </script>) if <script type="math/tex"> \left| \frac{ a \Delta t}{\Delta x} \right| \leq 1  </script>
-</p>
-<p>It is also time-reversible, so we call it a symplectic integrator. This is a good thing! A time-reversible integrator will conserve energy.</p>
-<p>One big problem with Leap-Frog is the starting problem. How do we compute the very first iteration to get <script type="math/tex"> n=1 </script>  when we don't have information about <script type="math/tex"> n=-1 </script>? We need to "start" the algorithm by calculating the first step using a different method.</p>
-<h3 id="lax-algorithm">Lax Algorithm</h3>
+<p>What happens at the plasma-vacuum interface? We need to specify jump conditions and continuity conditions. Let's use square brackets to signify a jump:</p>
 <p>
 <script type="math/tex; mode=display">
-u_j ^{n+1} = \frac{u_{j+1} ^n + u_{j-1} ^n}{2} - \frac{a \Delta t}{\Delta x} \left( \frac{ u_{j+1} ^n - u_{j-1} ^n}{2} \right)
+\left[ X \right] = \left. X \right|_{R_p + dr} - \left. X \right|_{R_p - dr}
 </script>
 </p>
-<p>Accuracy: <script type="math/tex"> O(\Delta t, \Delta x^2/\Delta t) </script>
-</p>
-<p>Stability: <script type="math/tex"> \left| \frac{ a \Delta t}{\Delta x} \right| \leq 1 </script>
-</p>
-<p>It may not be consistent if <script type="math/tex"> \Delta t \rightarrow 0 </script> faster than <script type="math/tex"> \Delta x^2 \rightarrow 0 </script>
-</p>
-<p>We can re-write the Lax algorithm as</p>
+<p>The normal magnetic field has to be continuous.</p>
 <p>
 <script type="math/tex; mode=display">
-u_j ^{n+1} = u_j ^n - \frac{ a \Delta t}{\Delta x} \left( \frac{ u_{j+1} ^n - u_{j-1} ^n}{2} \right) + \frac{ u_{j+1} ^n - 2 u_j ^n + u_{j-1} ^n}{2}
+[\vu n \cdot \vec B]_{R_p} = 0
 </script>
 </p>
-<p>Check out the last term - it's a difference operator for the <em>second</em> derivative. So what PDE do we approximate?</p>
+<p>The tangential magnetic field jump is given by the surface current density at the jump</p>
 <p>
 <script type="math/tex; mode=display">
-\pdv{u}{t} + a \pdv{u}{x} = \frac{\Delta x^2}{\Delta t} \pdv{^2 u}{x^2}
+\left[ \vu n \cross \vec B \right] _{R_p} = \mu_0 \vec K 
 </script>
 </p>
-<p>So we've added a second-derivative term to the linear advection equation. A second-derivative term acts as an artificial viscosity term, with viscosity <script type="math/tex"> \Delta x^2 / \Delta t </script>. </p>
-<h3 id="lax-wendroff-algorithm">Lax-Wendroff Algorithm</h3>
-<p>As we just saw, adding an artificial viscosity term can help to stabilize an unstable algorithm. If we take a Taylor series expansion</p>
+<p>Integrating <script type="math/tex"> \grad_\perp (p + \frac{B^2}{2 \mu_0}) = \frac{B^2}{\mu_0} \vec \kappa </script> over a differential volume across the surface gives</p>
 <p>
 <script type="math/tex; mode=display">
-u_j ^{n+1} = u_j ^n + \Delta t u_t + \frac{ \Delta t ^2}{2} u_{tt} + \frac{\Delta t^3}{6} u_{ttt} + \ldots
+\left[ p + \frac{B^2}{2 \mu_0} \right] _{R_p} = 0
 </script>
 </p>
-<p>and use our governing equation to replace some of the time derivatives with spatial derivatives</p>
+<p>The plasma shape is determined self-consistently by the wall shape and surface current. This is a free-boundary problem. Another option is to specify the plasma shape, and then determine the required wall shape. This is a fixed-boundary problem.</p>
+<p>The most realistic case includes externally applied magnetic fields coming from source coils, perhaps computed by Biot-Savart law. The vacuum magnetic field is then <script type="math/tex"> \vec B_{vac} = \vec B_{ext} + \vec B_{plasma} </script>. The crazy coil shapes in the stellarator design come from the 3D geometry computations solving this problem.</p>
+<h3 id="conservation-of-magnetic-flux-frozen-in-flux">Conservation of Magnetic Flux ("Frozen-In" Flux)</h3>
+<p>Locally, <script type="math/tex"> \vec E + \vec v \cross \vec B = 0 </script> with Faraday's law
+<script type="math/tex; mode=display">
+\pdv{B}{t} = - \curl \vec E = - B \div \vec v + \vec B \cdot \grad \vec v - \vec v \cdot \grad B
+</script>
+From the continuity equation,
+<script type="math/tex; mode=display">
+\pdv{\rho}{t} + \vec v \cdot \grad \rho = - \rho \div \vec v
+</script>
+Combining we find that
+<script type="math/tex; mode=display">
+\dv{\vec B}{t} = \frac{\vec B}{\rho} \dv{\rho}{t} + \vec B \cdot \grad \vec v
+</script>
+<script type="math/tex; mode=display">
+\rightarrow \dv{}{t} \left( \frac{\vec B}{\rho} \right) = \frac{\vec B}{\rho} \cdot \grad \vec v
+</script>
+</p>
+<p>This says that the field and plasma density move together. Locally, if the magnetic field increases then mass density increases, such that the ratio <script type="math/tex"> \vec B / \rho </script> remains constant. In the direction parallel to the magnetic field we have a term that involves field line twisting, which is a bit more complicated, but in the perpendicular direction
+<script type="math/tex; mode=display">
+\dv{}{t} \left( \frac{\vec B}{\rho} \right) _\perp = 0
+</script>
+</p>
+<p>If we consider globally the magnetic flux through a moving surface S at velocity <script type="math/tex"> \vec u </script>. The magnetic flux penetrating the surface is
+<script type="math/tex; mode=display">
+\Psi = \int \vec B \cdot \dd \vec S
+</script>
+or
+<script type="math/tex; mode=display">
+\dv{\Psi}{t} = \int \dv{\vec B}{t} \cdot \vu n \dd S
+</script>
+<script type="math/tex; mode=display">
+= \int \pdv{\vec B}{t}\cdot \vu n \dd S + \oint \vec B \cross \vec u \dd \vec l
+</script>
+Using Faraday's law</p>
 <p>
 <script type="math/tex; mode=display">
-u_t = - c u_x 
+\dv{\Psi}{t} = \int - \curl \vec E \cdot \vu n \dd S + \oint \vec B \cross \vec u \cdot \dd \vec l
 </script>
 <script type="math/tex; mode=display">
-u_{tt} = c^2 u_{xx}
+= \oint (- \vec E + \vec B \cross \vec u) \cdot \dd \vec l
 </script>
-</p>
-<p>Then we get</p>
-<p>
+Using the electric field from Ohm's law
 <script type="math/tex; mode=display">
-u_{j} ^{n+1} = u_j ^n - c \Delta t u_x + \frac{c^2 \Delta t^2}{2} u_{xx} - \ldots
+\dv{\Psi}{t} = \oint(\vec v - \vec u) \cross \vec B \cdot \dd \vec l
 </script>
-</p>
-<p>Substitute into expansion using centered finite difference operators</p>
-<p>
+This tells us that if the surface moves with the plasma <script type="math/tex"> \vec u = \vec v </script> then 
 <script type="math/tex; mode=display">
-\pdv{u}{x} \approx \frac{u_{j+1} ^n - u_{j-1} ^n}{2 \Delta x} \qquad \pdv{^2 u}{x^2} \approx \frac{u_{j+1} ^n - 2 u_j ^n + u_{j-1} ^n}{2 \Delta x^2}
+\dv{\Psi}{t} = 0
 </script>
-</p>
-<p>
-<script type="math/tex; mode=display">
-\rightarrow u_j ^{n+1} = u_j ^n - \frac{ a \Delta t}{2 \Delta x} ( u_{j+1} ^n - u_{j-1} ^n) + \frac{ a^2 \Delta t^2}{2 \Delta x ^2}(u_{j+1} ^n - 2 u_j ^n + u_{j-1} ^n)
-</script>
-</p>
-<p>Checking back up the page, we see the FTCS embedded directly in the algorithm, and we've got the same form of the second derivative but with a different multiplier. Instead of a <script type="math/tex"> 1 </script> we've got <script type="math/tex"> \frac{ a^2 \Delta t^2}{\Delta x^2} </script>
-</p>
-<p>What PDE are we approximating?</p>
-<p>
-<script type="math/tex; mode=display">
-\pdv{u}{t} + a \pdv{u}{x} = a^2 \Delta t \pdv{^2u}{x^2}
-</script>
-</p>
-<p>Again we've added artificial viscosity, but now the viscosity only depends directly on <script type="math/tex"> \Delta t </script> and goes to zero as <script type="math/tex"> \Delta t \rightarrow 0 </script>.</p>
-<p>We find that the Lax-Wendroff algorithm is <script type="math/tex"> O(\Delta t^2, \Delta x^2) </script>
-</p>
-<pre><code>
-n+1 --------|--------*--------|--------
-
-
-n   --------*--------*--------*--------
-            j-1      j        j+1
-
-</code></pre>
-
-<p>Another advantage of Lax-Wendroff over the Leap-Frog algorithm is that it avoids the starting problem. We don't need any information from step <script type="math/tex"> n-1 </script>, so it doesn't need to be started. How can that happen?</p>
-<p>Write Lax-Wendroff as a 2-step method (predictor-corrector). Say we're going to use a Lax algorithm to advance to a midpoint</p>
-<pre><code>
-n+1    --------|-----------------*-----------------|--------
-
-
-n+1/2  -----------------*-----------------*-----------------
-                        j-1/2             j+1/2
-
-n      --------|-----------------*-----------------|--------
-               j-1               j                 j+1
-
-</code></pre>
-
-<p>
-<script type="math/tex; mode=display">
-u_{j+\frac{1}{2}} ^{n + \frac{1}{2}} = \frac{u^n _{j+1} + u_j ^n}{2} - \frac{a \Delta t}{\Delta x} \left( \frac{ u_{j+1} ^n - u_j ^n}{2} \right)
-</script>
-</p>
-<p>
-<script type="math/tex; mode=display">
-u_j ^{n+1} = u_j ^n - \frac{a \Delta t}{\Delta x} \left( u_{j+1/2} ^{n+1/2} - u_{j-1/2} ^{n+1/2} \right)
-</script>
-</p>
-<p>That's why Lax-Wendroff is the most popular explicit algorithm for linear PDEs.</p>
+the flux through the surface is constant, and the flux is a constant of the topology. This is a direct consequence of ideal MHD. If we add even a small amount of resistivity, we dramatically alter the results in a process called "tearing" where the magnetic field "tears" and reconnects with itself.</p>
                 
                   
                 
@@ -1139,7 +1073,7 @@ u_j ^{n+1} = u_j ^n - \frac{a \Delta t}{\Delta x} \left( u_{j+1/2} ^{n+1/2} - u_
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch21-1/" title="Finite Difference Algorithms" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch12-5/" title="MHD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1148,19 +1082,19 @@ u_j ^{n+1} = u_j ^n - \frac{a \Delta t}{\Delta x} \left( u_{j+1/2} ^{n+1/2} - u_
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Finite Difference Algorithms
+                MHD
               </span>
             </div>
           </a>
         
         
-          <a href="../ch21-3/" title="Finite Difference and Finite Volume Methods" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch20-1/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Finite Difference and Finite Volume Methods
+                Introduction
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
