@@ -24,6 +24,7 @@ Keepin track of stuff while I learn it
         - [Plasma Fluid Model](ch12-3.md)
         - [Two-Fluid Model](ch12-4.md)
         - [MHD](ch12-5.md)
+        - [MHD Boundary Conditions](ch12-6.md)
 - UWAA543 - Introduction to Compressible CFD
     - Introduction to CFD
         - [Introduction](ch20-1.md)
