@@ -47,15 +47,16 @@ theme:
     text: IBM Plex Sans
     code: IBM Plex Mono
   language: 'en'
-  feature:
-    tabs: false
+  features:
+    - tabs
+    - instant
   palette:
     primary: 'indigo'
     accent: 'light blue'
   direction:
   favicon: assets/images/favicon.png
-  logo:
-    icon: "book"
+  icon:
+    logo: "material/book"
   include_search_page: true
   search_index_only: true
   static_templates:
@@ -68,15 +69,18 @@ extra:
 repo_name: 'PeppyHare/pf-notes'
 repo_url: 'https://github.com/PeppyHare/pf-notes'
 
-
-# This lets us render MathJax, the coolest thing since sliced bread!
 extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML
   - extra.js
+
 extra_css:
   - stylesheets/dark_theme.css
   - stylesheets/codehilite.css
   - stylesheets/extra.css
+
 markdown_extensions:
-  - mdx_math
+  - markdown_katex:
+      no_inline_svg: True
+      insert_fonts_css: True
+      no-throw-on-error: True
+      macro-file: macros.tex
   - admonition
