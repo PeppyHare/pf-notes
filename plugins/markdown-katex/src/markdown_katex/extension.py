@@ -229,6 +229,7 @@ class KatexPreprocessor(Preprocessor):
         block_lines: typ.List[str] = []
         out_lines  : typ.List[str] = []
 
+        wrapper.cleanup_tmp_dir()
         for line in lines:
             if is_in_fence:
                 out_lines.append(line)
@@ -244,12 +245,13 @@ class KatexPreprocessor(Preprocessor):
                 is_in_math_fence = False
                 block_text       = "\n".join(block_lines).rstrip()
                 del block_lines[:]
-                math_html = md_block2html(block_text, self.ext.options)
                 marker_id = make_marker_id("block" + block_text)
                 marker    = f"<p id='katex{marker_id}'>katex{marker_id}</p>"
-                tag_text  = f"<p>{math_html}</p>"
+                if marker not in self.ext.math_html:
+                    math_html = md_block2html(block_text, self.ext.options)
+                    tag_text  = f"<p>{math_html}</p>"
+                    self.ext.math_html[marker] = tag_text
                 out_lines.append(f"{block_prefix}{marker}")
-                self.ext.math_html[marker] = tag_text
             else:
                 math_fence_match = MATH_FENCE_RE.match(line)
                 fence_match      = FENCE_RE.match(line)
@@ -264,8 +266,9 @@ class KatexPreprocessor(Preprocessor):
                     block_lines.append(line)
                 else:
                     for inline_code in iter_inline_katex(line):
-                        math_html = md_inline2html(inline_code.inline_text, self.ext.options)
-                        self.ext.math_html[inline_code.marker] = math_html
+                        if inline_code.marker not in self.ext.math_html:
+                            math_html = md_inline2html(inline_code.inline_text, self.ext.options)
+                            self.ext.math_html[inline_code.marker] = math_html
                         line = inline_code.rewritten_line
 
                     out_lines.append(line)

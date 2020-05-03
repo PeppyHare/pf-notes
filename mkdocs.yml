@@ -81,6 +81,5 @@ markdown_extensions:
   - markdown_katex:
       no_inline_svg: True
       insert_fonts_css: True
-      no-throw-on-error: True
       macro-file: macros.tex
   - admonition
