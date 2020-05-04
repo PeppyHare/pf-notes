@@ -13,12 +13,12 @@ nav:
         - Oscillations: ch11-3.md
     - UWAA558 - Plasma Theory :
       - Introduction: ch12-1.md
-      - Plasma Models:
-        - Kinetic Models: ch12-2.md
-        - Plasma Fluid Model: ch12-3.md
-        - Two-Fluid Model: ch12-4.md
-        - MHD: ch12-5.md
-        - MHD Boundary Conditions: ch12-6.md
+      - Kinetic Models: ch12-2.md
+      - Plasma Fluid Model: ch12-3.md
+      - Two-Fluid Model: ch12-4.md
+      - MHD: ch12-5.md
+      - MHD Boundary Conditions: ch12-6.md
+      - Fusion Equilibrium: ch12-7.md
     - UWAA543 - Introduction to Compressible CFD:
       - Introduction:
         - Introduction: ch20-1.md
@@ -79,7 +79,7 @@ extra_css:
 
 markdown_extensions:
   - markdown_katex:
-      no_inline_svg: True
+      no_inline_svg: False
       insert_fonts_css: True
       macro-file: macros.tex
   - admonition
