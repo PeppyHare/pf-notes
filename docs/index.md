@@ -45,6 +45,7 @@ Keepin track of stuff while I learn it
     - [Definition of Plasma](ch1-1.md)
     - [Particle motion in EM fields](ch1-2.md)
 - Griffiths Introduction to E&M
+    - [Index](griffiths/index.md)
     - 1 - Vector Analysis
         - [1.1 - Vector Algebra](griffiths/ch1-1.md)
         - [1.2 - Differential Calculus](griffiths/ch1-2.md)
