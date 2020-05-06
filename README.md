@@ -1,4 +1,4 @@
-# Evan's plasma physics notes
+# Evan's physics notes
 
 ## [https://peppyhare.github.io/pf-notes/](https://peppyhare.github.io/pf-notes/)
 

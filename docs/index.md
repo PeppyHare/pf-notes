@@ -1,4 +1,4 @@
-# Evan's plasma notes
+# Evan's notes
 
 
 ## [https://peppyhare.github.io/pf-notes/](https://peppyhare.github.io/pf-notes/)
