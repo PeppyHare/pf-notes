@@ -176,6 +176,7 @@ def tex2html(tex: str, options: Options = None) -> str:
 
 
 def cleanup_tmp_dir() -> None:
+    TMP_DIR.mkdir(parents=True, exist_ok=True)
     min_mtime = time.time() - 24 * 60 * 60
     for fpath in TMP_DIR.iterdir():
         if not fpath.is_file():
