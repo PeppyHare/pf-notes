@@ -111,7 +111,7 @@ theme:
     - tabs
     - instant
   palette:
-    primary: 'indigo'
+    primary: 'black'
     accent: 'light blue'
   direction:
   favicon: assets/images/favicon.png
