@@ -21,7 +21,10 @@ log = logging.getLogger(__name__)
 
 SVG_ELEM_RE = re.compile(r"<svg.*?</svg>", flags=re.MULTILINE | re.DOTALL)
 
-SVG_XMLNS = 'xmlns="http://www.w3.org/2000/svg" ' + 'xmlns:xlink="http://www.w3.org/1999/xlink" '
+SVG_XMLNS = (
+    'xmlns="http://www.w3.org/2000/svg" '
+    + 'xmlns:xlink="http://www.w3.org/1999/xlink" '
+)
 
 KATEX_STYLES = """
 <link rel="stylesheet"
@@ -62,7 +65,7 @@ def svg2img(html: str) -> str:
             svg_data = svg_text.encode("utf-8")
             img_b64_data: bytes = base64.standard_b64encode(svg_data)
             img_b64_text = img_b64_data.decode("utf-8")
-            img_b64_tag  = B64IMG_TMPL.format(img_text=img_b64_text)
+            img_b64_tag = B64IMG_TMPL.format(img_text=img_b64_text)
             start, end = match.span()
             html = html[:start] + img_b64_tag + html[end:]
         else:
@@ -92,8 +95,8 @@ def tex2html(tex: str, options: wrapper.Options = None) -> str:
 
     # These are options of the extension, not of the katex-cli program.
     if options:
-        options.pop('no_inline_svg'   , None)
-        options.pop('insert_fonts_css', None)
+        options.pop("no_inline_svg", None)
+        options.pop("insert_fonts_css", None)
 
     result = wrapper.tex2html(tex, options)
     if no_inline_svg:
@@ -102,7 +105,7 @@ def tex2html(tex: str, options: wrapper.Options = None) -> str:
 
 
 def md_block2html(block_text: str, default_options: wrapper.Options = None) -> str:
-    options: wrapper.Options = {'display-mode': True}
+    options: wrapper.Options = {"display-mode": True}
 
     if default_options:
         options.update(default_options)
@@ -129,7 +132,7 @@ def _clean_inline_text(inline_text: str) -> str:
 
 
 def md_inline2html(inline_text: str, default_options: wrapper.Options = None) -> str:
-    options     = default_options.copy() if default_options else {}
+    options = default_options.copy() if default_options else {}
     inline_text = _clean_inline_text(inline_text)
     return tex2html(inline_text, options)
 
@@ -139,8 +142,8 @@ INLINE_DELIM_RE = re.compile(r"`{1,2}")
 
 class InlineCodeItem(typ.NamedTuple):
 
-    inline_text   : str
-    marker        : str
+    inline_text: str
+    marker: str
     rewritten_line: str
 
 
@@ -151,7 +154,7 @@ def iter_inline_katex(line: str) -> typ.Iterable[InlineCodeItem]:
         if inline_match_start is None:
             break
 
-        pos   = inline_match_start.end()
+        pos = inline_match_start.end()
         start = inline_match_start.start()
         delim = inline_match_start.group()
 
@@ -168,9 +171,9 @@ def iter_inline_katex(line: str) -> typ.Iterable[InlineCodeItem]:
             continue
 
         inline_text = line[start - 1 : end + 2]
-        marker_id   = make_marker_id("inline" + inline_text)
-        marker      = f"<span id='katex{marker_id}'>katex{marker_id}</span>"
-        line        = line[: start - 1] + marker + line[end + 2 :]
+        marker_id = make_marker_id("inline" + inline_text)
+        marker = f"<span id='katex{marker_id}'>katex{marker_id}</span>"
+        line = line[: start - 1] + marker + line[end + 2 :]
 
         pos = end + len(delim) - len(inline_text) + len(marker)
 
@@ -180,8 +183,8 @@ def iter_inline_katex(line: str) -> typ.Iterable[InlineCodeItem]:
 class KatexExtension(Extension):
     def __init__(self, **kwargs) -> None:
         self.config = {
-            'no_inline_svg'   : ["", "Replace inline <svg> with <img> tags."],
-            'insert_fonts_css': ["", "Insert font loading stylesheet."],
+            "no_inline_svg": ["", "Replace inline <svg> with <img> tags."],
+            "insert_fonts_css": ["", "Insert font loading stylesheet."],
         }
         for name, options_text in wrapper.parse_options().items():
             self.config[name] = ["", options_text]
@@ -204,14 +207,14 @@ class KatexExtension(Extension):
 
     def extendMarkdown(self, md, *args, **kwargs) -> None:
         preproc = KatexPreprocessor(md, self)
-        md.preprocessors.register(preproc, name='katex_fenced_code_block', priority=50)
+        md.preprocessors.register(preproc, name="katex_fenced_code_block", priority=50)
 
         postproc = KatexPostprocessor(md, self)
-        md.postprocessors.register(postproc, name='katex_fenced_code_block', priority=0)
+        md.postprocessors.register(postproc, name="katex_fenced_code_block", priority=0)
         md.registerExtension(self)
 
 
-FENCE_RE      = re.compile(r"^(\s*)(```|~~~)")
+FENCE_RE = re.compile(r"^(\s*)(```|~~~)")
 MATH_FENCE_RE = re.compile(r"^(\s*)(```|~~~)math")
 
 
@@ -221,15 +224,15 @@ class KatexPreprocessor(Preprocessor):
         self.ext: KatexExtension = ext
 
     def run(self, lines: typ.List[str]) -> typ.List[str]:
-        is_in_math_fence     = False
-        is_in_fence          = False
+        is_in_math_fence = False
+        is_in_fence = False
         expected_close_fence = "```"
-        block_prefix         = ""
+        block_prefix = ""
 
         block_lines: typ.List[str] = []
-        out_lines  : typ.List[str] = []
+        out_lines: typ.List[str] = []
 
-        wrapper.cleanup_tmp_dir()
+        # wrapper.cleanup_tmp_dir()
         for line in lines:
             if is_in_fence:
                 out_lines.append(line)
@@ -243,31 +246,33 @@ class KatexPreprocessor(Preprocessor):
                     continue
 
                 is_in_math_fence = False
-                block_text       = "\n".join(block_lines).rstrip()
+                block_text = "\n".join(block_lines).rstrip()
                 del block_lines[:]
                 marker_id = make_marker_id("block" + block_text)
-                marker    = f"<p id='katex{marker_id}'>katex{marker_id}</p>"
+                marker = f"<p id='katex{marker_id}'>katex{marker_id}</p>"
                 if marker not in self.ext.math_html:
                     math_html = md_block2html(block_text, self.ext.options)
-                    tag_text  = f"<p>{math_html}</p>"
+                    tag_text = f"<p>{math_html}</p>"
                     self.ext.math_html[marker] = tag_text
                 out_lines.append(f"{block_prefix}{marker}")
             else:
                 math_fence_match = MATH_FENCE_RE.match(line)
-                fence_match      = FENCE_RE.match(line)
+                fence_match = FENCE_RE.match(line)
                 if math_fence_match:
-                    is_in_math_fence     = True
-                    block_prefix         = math_fence_match.group(1)
+                    is_in_math_fence = True
+                    block_prefix = math_fence_match.group(1)
                     expected_close_fence = math_fence_match.group(2)
                     block_lines.append(line.lstrip())
                 elif fence_match:
-                    is_in_fence          = True
+                    is_in_fence = True
                     expected_close_fence = fence_match.group(2)
                     block_lines.append(line)
                 else:
                     for inline_code in iter_inline_katex(line):
                         if inline_code.marker not in self.ext.math_html:
-                            math_html = md_inline2html(inline_code.inline_text, self.ext.options)
+                            math_html = md_inline2html(
+                                inline_code.inline_text, self.ext.options
+                            )
                             self.ext.math_html[inline_code.marker] = math_html
                         line = inline_code.rewritten_line
 

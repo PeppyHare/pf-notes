@@ -23,16 +23,16 @@ import pathlib2 as pl
 SIG_NAME_BY_NUM = {
     k: v
     for v, k in sorted(signal.__dict__.items(), reverse=True)
-    if v.startswith('SIG') and not v.startswith('SIG_')
+    if v.startswith("SIG") and not v.startswith("SIG_")
 }
 
-assert SIG_NAME_BY_NUM[15] == 'SIGTERM'
+assert SIG_NAME_BY_NUM[15] == "SIGTERM"
 
 
 TMP_DIR = pl.Path(tempfile.gettempdir()) / "mdkatex"
 
 LIBDIR: pl.Path = pl.Path(__file__).parent
-PKG_BIN_DIR      = LIBDIR / "bin"
+PKG_BIN_DIR = LIBDIR / "bin"
 FALLBACK_BIN_DIR = pl.Path("/") / "usr" / "local" / "bin"
 FALLBACK_BIN_DIR = FALLBACK_BIN_DIR.expanduser()
 
@@ -40,7 +40,7 @@ CMD_NAME = "katex"
 
 
 def _get_usr_bin_path() -> typ.Optional[pl.Path]:
-    env_path = os.environ.get('PATH')
+    env_path = os.environ.get("PATH")
     env_paths: typ.List[pl.Path] = []
 
     if env_path:
@@ -64,13 +64,13 @@ def _get_usr_bin_path() -> typ.Optional[pl.Path]:
 
 
 # https://pymotw.com/3/platform/
-OSNAME  = platform.system()
+OSNAME = platform.system()
 MACHINE = platform.machine()
 
 
 def _get_pkg_bin_path(osname: str = OSNAME, machine: str = MACHINE) -> pl.Path:
-    if machine == 'AMD64':
-        machine = 'x86_64'
+    if machine == "AMD64":
+        machine = "x86_64"
     glob_expr = f"*_{machine}-{osname}"
     bin_files = list(PKG_BIN_DIR.glob(glob_expr))
     if bin_files:
@@ -109,11 +109,11 @@ def read_output(buf: typ.Optional[typ.IO[bytes]]) -> str:
 
 
 ArgValue = typ.Union[str, int, float, bool]
-Options  = typ.Dict[str, ArgValue]
+Options = typ.Dict[str, ArgValue]
 
 
 def tex2html(tex: str, options: Options = None) -> str:
-    binpath   = get_bin_path()
+    binpath = get_bin_path()
     cmd_parts = [str(binpath)]
 
     if options:
@@ -140,17 +140,19 @@ def tex2html(tex: str, options: Options = None) -> str:
 
     digest = hasher.hexdigest()
 
-    tmp_input_file  = TMP_DIR / (digest + ".tex")
+    tmp_input_file = TMP_DIR / (digest + ".tex")
     tmp_output_file = TMP_DIR / (digest + ".html")
 
     if not tmp_output_file.exists():
-        cmd_parts.extend(["--input", str(tmp_input_file), "--output", str(tmp_output_file)])
+        cmd_parts.extend(
+            ["--input", str(tmp_input_file), "--output", str(tmp_output_file)]
+        )
 
         TMP_DIR.mkdir(parents=True, exist_ok=True)
         with tmp_input_file.open(mode="wb") as fobj:
             fobj.write(input_data)
 
-        proc     = sp.Popen(cmd_parts, stdout=sp.PIPE, stderr=sp.PIPE)
+        proc = sp.Popen(cmd_parts, stdout=sp.PIPE, stderr=sp.PIPE)
         ret_code = proc.wait()
         if ret_code < 0:
             signame = SIG_NAME_BY_NUM[abs(ret_code)]
@@ -161,9 +163,9 @@ def tex2html(tex: str, options: Options = None) -> str:
             )
             raise Exception(err_msg)
         elif ret_code > 0:
-            stdout  = read_output(proc.stdout)
-            errout  = read_output(proc.stderr)
-            output  = (stdout + "\n" + errout).strip()
+            stdout = read_output(proc.stdout)
+            errout = read_output(proc.stderr)
+            output = (stdout + "\n" + errout).strip()
             err_msg = f"Error processing '{tex}': {output}"
             raise Exception(err_msg)
 
@@ -214,9 +216,9 @@ DEFAULT_HELP_TEXT = DEFAULT_HELP_TEXT.replace("\n", " ").replace("NL", "\n")
 
 
 def _get_cmd_help_text() -> str:
-    binpath   = get_bin_path()
+    binpath = get_bin_path()
     cmd_parts = [str(binpath), "--help"]
-    proc      = sp.Popen(cmd_parts, stdout=sp.PIPE)
+    proc = sp.Popen(cmd_parts, stdout=sp.PIPE)
     help_text = read_output(proc.stdout)
     return help_text
 
@@ -245,10 +247,10 @@ def _parse_options_help_text(help_text: str) -> OptionsHelp:
         text = " ".join(l.strip() for l in text.splitlines())
         options[name] = text.strip()
 
-    options.pop("version"     , None)
-    options.pop("help"        , None)
-    options.pop("input"       , None)
-    options.pop("output"      , None)
+    options.pop("version", None)
+    options.pop("help", None)
+    options.pop("input", None)
+    options.pop("output", None)
     options.pop("display-mode", None)
 
     return options
@@ -263,7 +265,7 @@ def parse_options() -> OptionsHelp:
 
     options = _parse_options_help_text(DEFAULT_HELP_TEXT)
     try:
-        help_text   = _get_cmd_help_text()
+        help_text = _get_cmd_help_text()
         cmd_options = _parse_options_help_text(help_text)
         options.update(cmd_options)
     except NotImplementedError:
