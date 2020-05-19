@@ -100,23 +100,23 @@ nav:
 
 # Cool material theme: https://squidfunk.github.io/mkdocs-material/
 theme:
-  name: 'material'
+  name: material
   font:
     # text: 'Noto Serif'
     # code: 'Roboto Mono'
     text: IBM Plex Sans
     code: IBM Plex Mono
-  language: 'en'
+  language: en
   features:
     - tabs
     - instant
   palette:
-    primary: 'black'
-    accent: 'light blue'
+    primary: orange
+    accent: light blue
   direction:
   favicon: assets/images/favicon.png
   icon:
-    logo: "material/book"
+    logo: material/book
   include_search_page: true
   search_index_only: true
   static_templates:
@@ -126,8 +126,8 @@ extra:
   search:
     language: 'en'
 
-repo_name: 'PeppyHare/pf-notes'
-repo_url: 'https://github.com/PeppyHare/pf-notes'
+repo_name: PeppyHare/pf-notes
+repo_url: https://github.com/PeppyHare/pf-notes
 
 extra_javascript:
   - extra.js
