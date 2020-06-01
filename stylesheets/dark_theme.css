@@ -15,6 +15,8 @@
     :root {
         --special-text-color: hsla(60, 50%, 70%, 0.75);
         --border-color: white;
+        --md-default-fg-color--lighter: hsla(60, 50%, 70%, 0.75);
+        --md-default-fg-color--light: hsla(60, 50%, 70%, 0.75);
     }
     body, input {
         color: rgba(236, 237, 237, 0.87);
