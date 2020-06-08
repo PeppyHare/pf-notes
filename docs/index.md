@@ -3,10 +3,23 @@
 
 ## [https://peppyhare.github.io/pf-notes/](https://peppyhare.github.io/pf-notes/)
 
-Keepin track of stuff while I learn it
+Keepin track of stuff while I learn it. Physics is Fun!
 
 ## Table of Contents
 
+- UWAA558 - Magnetohydrodynamic Theory
+    - [Introduction](ch12-1.md)
+    - [Kinetic Models](ch12-2.md)
+    - [Plasma Fluid Model](ch12-3.md)
+    - [Two-Fluid Model](ch12-4.md)
+    - [MHD](ch12-5.md)
+    - [MHD Boundary Conditions](ch12-6.md)
+    - [MHD Equilibrium Concepts](ch12-7.md)
+    - [Equilibrium of 1D Configurations](ch12-8.md)
+    - [Equilibrium of 2D Configurations](ch12-9.md)
+    - [Equilibrium of 3D Configurations](ch12-10.md)
+    - [MHD Stability](ch12-11.md)
+    - [Formulary](ch12-formulary.md)
 - UWAA557 - Physics of Fusion Plasmas
     - [Rules of Thumb](ch10-0.md)
     - Review
@@ -17,17 +30,6 @@ Keepin track of stuff while I learn it
         - [Wall-supported Plasma](ch11-1.md)
         - [Collisions](ch11-2.md)
         - [Oscillations](ch11-3.md)
-- UWAA558 - Plasma Theory
-    - [Introduction](ch12-1.md)
-    - [Kinetic Models](ch12-2.md)
-    - [Plasma Fluid Model](ch12-3.md)
-    - [Two-Fluid Model](ch12-4.md)
-    - [MHD](ch12-5.md)
-    - [MHD Boundary Conditions](ch12-6.md)
-    - [MHD Equilibrium Concepts](ch12-7.md)
-    - [Equilibrium of 1D Configurations](ch12-8.md)
-    - [Equilibrium of 2D Configurations](ch12-9.md)
-    - [Formulary](ch12-formulary.md)
 - UWAA543 - Introduction to Compressible CFD
     - Introduction to CFD
         - [Introduction](ch20-1.md)
