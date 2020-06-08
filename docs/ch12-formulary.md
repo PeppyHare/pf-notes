@@ -41,10 +41,23 @@
     ```
     ```math
     \text{Momentum:} \qquad n_\alpha \vec v_\alpha = \int \vec v f_\alpha \dd v \\
-    \quad \rightarrow \quad 
+    \quad \rightarrow \quad \pdv{}{t} (n_\alpha \vec v_\alpha ) + \div (n_\alpha \vec v_\alpha \vec v_\alpha) + \frac{1}{m_\alpha} \div \vec P_\alpha - \frac{q_\alpha}{m_\alpha} n_\alpha ( \vec E + \vec v _\alpha \cross \vec B) = \sum_{\beta \neq \alpha} \int \vec w C_{\alpha \beta} \dd \vec v
     ```
     ```math
-    \text{Energy:} \qquad 
+    \rightarrow \rho_\alpha \left(\pdv{\vec v_\alpha}{t} + \vec v_\alpha \cdot \grad \vec v_\alpha \right) + \grad \vec P_\alpha + \div \vec \Pi_\alpha - q_\alpha n_\alpha (\vec E + \vec v_\alpha \cross \vec B) = \sum_{\beta \neq \alpha} \vec R_{\alpha \beta}
+    ```
+    ```math
+    \text{Energy:} \qquad \int \vec v \vec v \pdv{f_\alpha}{t} \dd \vec v = \pdv{}{t} \int \vec v \vec v f_\alpha \dd \vec v = \pdv{}{t} \vec E_\alpha / m_\alpha \rightarrow \pdv{}{t} \vec P_\alpha
+    ```
+    ```math
+    \rightarrow \quad \frac{3}{2} n_\alpha \left( \pdv{T_\alpha}{t} + \vec v_\alpha \cdot \grad T_\alpha \right) + P_\alpha \div \vec v_\alpha + \vec \Pi_\alpha \cdot \cdot \grad \vec v_\alpha + \div \vec h_\alpha = \sum_{\beta \neq \alpha} Q_{\alpha \beta}
+    ```
+    Closure relations
+    ```math
+    \vec h_\alpha = - \kappa \grad T_\alpha
+    ```
+    ```math
+    \overline \Pi_ \alpha = \nu \grad \vec v_\alpha
     ```
 
 ## Ideal MHD
@@ -201,6 +214,95 @@
     \vec B_\theta = - \frac{\vu R}{R} \pdv{\psi}{z} + \frac{ \vu z}{R} \pdv{\psi}{R} = \frac{ \grad \psi}{R} \cross \vu \phi
     ```
     ```math
-    
+    F \equiv R B_\phi
     ```
+    ```math
+    \Delta ^\star \equiv R \pdv{}{R} \frac{1}{R} \pdv{}{R} + \pdv{^2}{z^2}
+    ```
+    ```math
+    \Delta ^\star \psi = \pdv{^2 \psi}{z^2} + \pdv{^2 \psi}{R^2} - \frac{1}{R} \pdv{\psi}{R}
+    ```
+    ```math
+    \vec j_\phi = - \frac{1}{\mu_0 R} \Delta ^\star \psi \vu \phi
+    ```
+    ```math
+    \vec j_\theta = \frac{1}{\mu_0 R} \grad (F) \cross \vu \phi
+    ```
+    ```math
+    R^2 \mu_0 \pdv{p}{\psi} = - \Delta ^\star \psi - F \pdv{F}{\psi}
+    ```
+    ```math
+    q(\psi) = \frac{F(\psi)}{2 \pi} \oint_{p} \frac{r \dd \theta}{R^2 B_\theta}
+    ```
+    Limits:
+    ```math
+    \text{Force-free:} \qquad \vec j \parallel \vec B
+    ```
+    ```math
+    \rightarrow \Delta ^\star \psi + F F' = 0
+    ```
+    ```math
+    \text{Connected $\theta$ pinch:} \qquad FF' \gg \Delta ^\star \psi
+    ```
+    ```math
+    \rightarrow \grad p \approx \vec j_\theta \cross \vec B_\phi
+    ```
+    ```math
+    \text{Connected Z-pinch:} \qquad FF' \ll \Delta ^\star \phi
+    ```
+    ```math
+    \rightarrow \grad p \approx j_\phi \cross B_\theta
+    ```
+
+## MHD Stability
+
+!!! info "Linear stability"
     
+    ```math
+    \pdv{\rho_1}{t} = - \vec v_1 \grad \rho_0 - \rho_0 \div \vec v_1
+    ```
+    ```math
+    \pdv{\vec B_1}{t} = \curl ( \vec v_1 \cross \vec B_0)
+    ```
+    ```math
+    \rho_0 \pdv{\vec v_1}{t} = - \grad p_1 + \vec j_0 \cross \vec B_1 - \vec j_1 \cross \vec B_0
+    ```
+    ```math
+    \pdv{p_1}{t} = - \vec v_1 \cdot \grad p_0 - \gamma p_0 \div \vec v_1
+    ```
+    For linear perturbation $` \vec \xi = \int_0 ^t \vec v_1 \dd t `$ the momentum equation becomes
+    ```math
+    \rho_0 \pdv{^2 \xi}{t^2} = \vec F(\xi)
+    ```
+    where
+    ```math
+    F(\xi) = \grad (\xi \cdot \grad p_0 + \gamma p_0 \div \xi) + \frac{1}{\mu_0} \left[ ( \curl \vec B_0) \cross \curl (\xi \cross \vec B_0) + \curl \curl (\xi \cross \vec B_0) \cross \vec B_0 \right]
+    ```
+    Eigenvalues of $` \frac{1}{\rho_0} \vec F (\xi) = \omega^2 \xi `$ are real and ordered. Only need to check $` n=0 `$ to determine stability/instability of configuration.
+
+!!! info "$` \delta W `$ Approach"
+
+    $` \delta W = `$ change in potential energy due to a displacement $` \xi `$
+    ```math
+    \delta W < 0  \rightarrow \text{instability}
+    ```
+    ```math
+    \delta W = - \frac{1}{2} \int \xi \cdot F(\xi) \dd V = \delta W_F + \delta W_S + \delta W_V
+    ```
+    Surface term:
+    ```math
+    \delta W_s = \frac{1}{2} \oint \dd S (\vu n \cdot \xi) ^2 \left( \vu n \cdot \grad p_0 + \left[ \vu n \cdot \grad \frac{B_0 ^2}{2 \mu_0} \right]_{jump} \right)
+    ```
+    Vacuum term:
+    ```math
+    \delta W_V = \int_{vac} \dd V \frac{B_1 ^2}{\mu_0}
+    ```
+    Plasma (free) term:
+    ```math
+    \delta W_F = \frac{1}{2} \int \dd V \frac{ |B_{1, \perp}|^2}{\mu_0} \quad \leftarrow \text{Shear Alfven} \\
+    + \mu_0 \left| \frac{B_{1, \parallel}}{\mu_0}  - \frac{B_0 \xi \cdot \grad p_0}{B_0} ^2 \right|^2 \quad \leftarrow \text{Fast magnetosonic} \\
+    + \Gamma p_0 |\div \xi|^2 \quad \leftarrow \text{Acoustic}\\
+    + \frac{\vec j_0 \cdot \vec B_0}{B_0 ^2} (\vec B_0 \cross \vec \xi) \cdot \vec B_1  \quad \leftarrow \text{Current-driven (kink)}  \\
+    - 2 ( \vec \xi \cdot \grad p_0)(\vec \xi \cdot \vec \kappa) \quad \leftarrow \text{pressure-driven (interchange/balooning)}
+    ```
+    Shear Alfven, fast magnetosonic, and acoustic modes are stabilizing. Current-driven and pressure-driven modes can lead to instability.
