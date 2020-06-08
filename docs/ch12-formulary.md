@@ -62,14 +62,43 @@
 
 ## Ideal MHD
 
-!!! info "Conservation Law Form of Ideal MHD"
+!!! info "Ideal MHD"
 
+    Continuity:
     ```math
     \pdv{\rho}{t} + \div (\rho \vec v) = 0
     ```
+    Momentum:
+    ```math
+    \rho \left( \pdv{\vec v}{t} + \vec v \cdot \grad \vec v \right) + \grad p - \vec j \cross \vec B = 0
+    ```
+    Generalized Ohm's Law
+    ```math
+    \vec E + \vec v \cross \vec B = \frac{1}{Zen}\cancel{(\vec j \cross \vec B - \grad p_e)} = 0
+    ```
+    Energy
+    ```math
+    \dv{}{t} \left( \frac{p}{\rho^\gamma} \right) = 0
+    ```
+
+!!! info "Lawson Criterion"
+
+    ```math
+    n \tau_E > 10^4 s/m^3
+    ```
+
+
+!!! info "Conservation Law Form of Ideal MHD"
+
+    Continuity:
+    ```math
+    \pdv{\rho}{t} + \div (\rho \vec v) = 0
+    ```
+    Momentum:
     ```math
     \pdv{(\rho \vec v)}{t} + \div \left[ \rho \vec v \vec v - \frac{\vec B \vec B}{\mu_0} + \left( p + \frac{B^2}{2 \mu_0} \right) \overline{I} \right] = 0
     ```
+    Energy:
     ```math
     \pdv{\epsilon}{t} + \div \left[ \left( \epsilon + p + \frac{B^2}{2 \mu_0} \right) \vec v - (\vec B \cdot \vec v) \frac{\vec B}{\mu_0} \right] = 0
     ```
