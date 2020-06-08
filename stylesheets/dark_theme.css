@@ -13,10 +13,10 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --special-text-color: hsla(60, 50%, 70%, 0.75);
+        --special-text-color:  rgba(236, 237, 237, 0.87);
         --border-color: white;
-        --md-default-fg-color--lighter: hsla(60, 50%, 70%, 0.75);
-        --md-default-fg-color--light: hsla(60, 50%, 70%, 0.75);
+        --md-default-fg-color--lighter:  rgba(236, 237, 237, 0.87);
+        --md-default-fg-color--light:  rgba(236, 237, 237, 0.87);
     }
     body, input {
         color: rgba(236, 237, 237, 0.87);
@@ -45,6 +45,10 @@
     .md-main {
       color: #F5F5F5 !important;
       background-color: #212121 !important;
+    }
+    .admonition {
+      background-color: #212121 !important;
+      color: #F5F5F5 !important;
     }
 
     /*
